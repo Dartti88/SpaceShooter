@@ -19,6 +19,17 @@ public class PlayerController : MonoBehaviour
 
     private float nextFire;
 
+    private int hitpoints;  // hp
+
+    // Pelin alussa 2 hp testailua varten
+    private void Start()
+    {
+        hitpoints = 2;
+    }
+
+    // Kontrollien vaihtaminen / lisääminen: Edit > Project Settings > Input
+    // Fire1: left ctrl & mouse left, Fire2: left alt & mouse right, Fire3: left shift & mouse mid
+    // Muut Inputit tähän?
     void Update()
     {
         if (Input.GetButton("Fire1") && Time.time > nextFire)
@@ -27,6 +38,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
+        
     }
 
     void FixedUpdate()
@@ -45,5 +57,18 @@ public class PlayerController : MonoBehaviour
         );
 
         GetComponent<Rigidbody>().rotation = Quaternion.Euler(0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -tilt);
+    }
+
+    // Palauttaa hp:t, käytetään atm vain gamecontrollerissa
+    public int getHp()
+    {
+        return hitpoints;
+    }
+
+    // Vähentää x hp
+    public void damage(int damage)
+    {
+        hitpoints = hitpoints - damage;
+        Debug.Log("Alukeen osuma, hp: " + hitpoints);
     }
 }

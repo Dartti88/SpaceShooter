@@ -7,6 +7,8 @@ public class DestroyByContact : MonoBehaviour
     public GameObject playerExplosion;
     public int scoreValue;
     private GameController gameController;
+    // Tarvitaan pääsy pelaajan hitpointteihin
+    private PlayerController playerController;
 
     void Start()
     {
@@ -15,8 +17,15 @@ public class DestroyByContact : MonoBehaviour
         {
             Debug.Log("Cannot Find 'GameController' script");
         }
+        // Haetaan player controller
+        playerController = GameObject.FindObjectOfType<PlayerController>();
+        if (playerController == null)
+        {
+            Debug.Log("Cannot find 'PlayerController' script");
+        }
     }
 
+    // Other viittaa asteroidiin törmäävään peliobjektiin (pelaaja tai projektiili)
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Boundary" || other.tag == "Enemy")
@@ -29,14 +38,39 @@ public class DestroyByContact : MonoBehaviour
             Instantiate(explosion, transform.position, transform.rotation);
         }
 
+        // Alkuperäinen koodi asteroidi-pelaaja törmäyksille
+        /*
         if (other.tag == "Player")
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             gameController.GameOver();
         }
-
         gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
+        */
+
+        // Eliaksen setit
+        if (other.tag == "Player")
+        {
+            // Asteroidi räjähtää, saadaan pisteet
+            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+            gameController.AddScore(scoreValue);
+            Destroy(gameObject);
+            // Pelaaja ottaa osumaa, jos hp nollaan peli päättyy
+            playerController.damage(1);
+            if (playerController.getHp() == 0)
+            {
+                Destroy(other.gameObject);
+                gameController.GameOver();
+            }
+        }
+        // Muut tapaukset (asteroidiin osuu esim ammus)
+        else
+        {
+            gameController.AddScore(scoreValue);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
