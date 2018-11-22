@@ -19,12 +19,14 @@ public class PlayerController : MonoBehaviour
 
     private float nextFire;
 
-    private int hitpoints;  // hp
+    private int hitpoints;  // hullpoint
+    private bool forceField; // Onko pelaaja ylipäätään hankkinut suojakenttää?
 
     // Pelin alussa 2 hp testailua varten
     private void Start()
     {
         hitpoints = 2;
+        forceField = false;
     }
 
     // Kontrollien vaihtaminen / lisääminen: Edit > Project Settings > Input
@@ -64,11 +66,20 @@ public class PlayerController : MonoBehaviour
     {
         return hitpoints;
     }
-
+    // Suojakentän latautumine ntime vai wave
     // Vähentää x hp
     public void damage(int damage)
     {
-        hitpoints = hitpoints - damage;
-        Debug.Log("Alukeen osuma, hp: " + hitpoints);
+        // Suojakenttä? 
+        if (forceField)
+        {
+
+        }
+
+        else if (!forceField)
+        {
+            hitpoints = hitpoints - damage;
+            Debug.Log("Alukeen osuma, hp: " + hitpoints);
+        }
     }
 }
