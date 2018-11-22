@@ -25,8 +25,8 @@ public class PlayerController : MonoBehaviour
     // Pelin alussa 2 hp testailua varten
     private void Start()
     {
-        hitpoints = 1;
-        forceField = false;
+        hitpoints = 10;
+        forceField = false;s
     }
 
     // Kontrollien vaihtaminen / lisääminen: Edit > Project Settings > Input
