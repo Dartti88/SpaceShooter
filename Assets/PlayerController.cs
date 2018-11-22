@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         hitpoints = 10;
-        forceField = false;s
+        forceField = false;
     }
 
     // Kontrollien vaihtaminen / lisääminen: Edit > Project Settings > Input
