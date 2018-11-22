@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     // Pelin alussa 2 hp testailua varten
     private void Start()
     {
-        hitpoints = 1;
+        hitpoints = 10;
         forceField = false;
     }
 
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         return hitpoints;
     }
-    // Suojakentän latautumine ntime vai wave
+    // Suojakentän latautuminen time vai wave
     // Vähentää x hp
     public void damage(int damage)
     {
