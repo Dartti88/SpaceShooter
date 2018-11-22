@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
-        
+
     }
 
     void FixedUpdate()
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
     // Vähentää x hp
     public void damage(int damage)
     {
-        // Suojakenttä? 
+        // Suojakenttä?
         if (forceField)
         {
 
