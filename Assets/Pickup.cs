@@ -7,6 +7,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour {
 
     private GameController gameController;
+    private PlayerController playerController;
 
     void Start()
     {

@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     // Pelin alussa 2 hp testailua varten
     private void Start()
     {
-        hitpoints = 10;
+        hitpoints = 100;
         forceField = false;
     }
 
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
-        
+
     }
 
     void FixedUpdate()
@@ -66,11 +66,11 @@ public class PlayerController : MonoBehaviour
     {
         return hitpoints;
     }
-    // Suojakentän latautumine ntime vai wave
+    // Suojakentän latautuminen time vai wave
     // Vähentää x hp
     public void damage(int damage)
     {
-        // Suojakenttä? 
+        // Suojakenttä?
         if (forceField)
         {
 
