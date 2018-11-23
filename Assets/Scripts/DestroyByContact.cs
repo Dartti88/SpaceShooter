@@ -25,7 +25,7 @@ public class DestroyByContact : MonoBehaviour
         }
     }
 
-    // Other viittaa asteroidiin törmäävään peliobjektiin (pelaaja tai projektiili)
+    // Other viittaa asteroidiin tai vihollisen boltiin törmäävään peliobjektiin (pelaaja tai projektiili) [voi tehdä myös other.CompareTag("xxx")]
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Boundary" || other.tag == "Enemy")

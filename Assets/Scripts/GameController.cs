@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject hazard;
+    public GameObject[] hazards; //Gameobject-array, syy: monia eri vihollisia
     public GameObject pickup;   // Pickup
     public Vector3 spawnValues; // Spawnien koordinaattien raja-arvot
     public int hazardCount;
@@ -62,6 +62,7 @@ public class GameController : MonoBehaviour
 
             for (int i = 0; i < hazardCount; i++)
             {
+                GameObject hazard = hazards[Random.Range(0, hazards.Length)]; //mahdollistaa eri vihollisten spawnauksen: valitsee vihollisten listalta yhden vihollisen satunnaisesti  
                 Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotation);
