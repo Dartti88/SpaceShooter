@@ -1278,11 +1278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cb78d8e430f5b4fb475a85a78e5d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hazard: {fileID: 1797504238715380, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
+  asteroid: {fileID: 1797504238715380, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
   pickup: {fileID: 1815691655527350, guid: 40e097c4d223f9a42bda356ae3a849f7, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 10
-  waveCount: 0
   spawnWait: 0.5
   startWait: 1
   waveWait: 4
@@ -1290,6 +1289,8 @@ MonoBehaviour:
   restartText: {fileID: 294483179}
   gameOverText: {fileID: 1121556536}
   waveText: {fileID: 1510914404}
+  waveCount: 0
+  list: []
 --- !u!4 &1681551530
 Transform:
   m_ObjectHideFlags: 0
