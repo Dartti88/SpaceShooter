@@ -16,6 +16,11 @@ public class Pickup : MonoBehaviour {
         {
             Debug.Log("Cannot Find 'GameController' script");
         }
+        playerController = GameObject.FindObjectOfType<PlayerController>();
+        if (playerController == null)
+        {
+            Debug.Log("Cannot find 'PlayerController' script");
+        }
     }
 
     void OnTriggerEnter(Collider other)

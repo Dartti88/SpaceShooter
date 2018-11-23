@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
     public Text restartText;
     public Text gameOverText;
     public Text waveText;   // Teksti joka tulee tason alkaessa näytölle
+    private PlayerController playerController;  // Haetaan shield str
+    public Text shieldStrText;  // Shield str
 
     private int score;
     private bool gameOver;
@@ -29,6 +31,14 @@ public class GameController : MonoBehaviour
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+        
+        // Haetaan player controller
+        playerController = GameObject.FindObjectOfType<PlayerController>();
+        if (playerController == null)
+        {
+            Debug.Log("Cannot find 'PlayerController' script");
+        }
+        shieldStrText.text = "Shield: " +  playerController.getShieldStr() + "%";
 
         score = 0;
         waveCount = 1;          // Wave count
@@ -39,6 +49,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        shieldStrText.text = "Shield: " + playerController.getShieldStr() + "%";
         if (restart)
         {
             if (Input.GetKeyDown(KeyCode.R))
