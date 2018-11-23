@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 // Toimii tällä hetkellä kuten DestroyByContact, mutta vain osuessa pelaajan alukseen
-public class Pickup : MonoBehaviour {
+public class DestroyPickup : MonoBehaviour {
 
     private GameController gameController;
     private PlayerController playerController;
@@ -15,6 +15,11 @@ public class Pickup : MonoBehaviour {
         if (gameController == null)
         {
             Debug.Log("Cannot Find 'GameController' script");
+        }
+        playerController = GameObject.FindObjectOfType<PlayerController>();
+        if (playerController == null)
+        {
+            Debug.Log("Cannot find 'PlayerController' script");
         }
     }
 

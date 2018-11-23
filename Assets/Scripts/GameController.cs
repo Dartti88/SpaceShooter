@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
-
 public class GameController : MonoBehaviour
 {
     public Vector3 spawnValues; // Spawnien koordinaattien raja-arvot
@@ -16,6 +15,10 @@ public class GameController : MonoBehaviour
     public Text restartText;
     public Text gameOverText;
     public Text waveText;   // Teksti joka tulee tason alkaessa näytölle
+    private PlayerController playerController;
+    public Text shieldStrText;
+    public Slider shieldStrSlider;
+    public RectTransform newFillRect;
 
     private int score;
     private bool gameOver;
@@ -52,6 +55,18 @@ public class GameController : MonoBehaviour
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+
+        playerController = GameObject.FindObjectOfType<PlayerController>();
+        if (playerController == null)
+        {
+            Debug.Log("Cannot find 'PlayerController' script");
+        }
+
+        // Setting shield slider to player current shield strength, then assigning sliders max value to shield max value
+        shieldStrText.text = "Shield: " +  playerController.getShieldStr() + "%";
+        shieldStrSlider.value = playerController.getShieldStr();
+        shieldStrSlider.maxValue = 100;
+
 
         score = 0;
         waveCount = 0;          // Wave count
@@ -103,7 +118,7 @@ public class GameController : MonoBehaviour
 
         Debug.Log("number of different enemies in this lane type: " + hazardsCurrentLane.Length); //DEBUG
 
-        tempList = new GameObject[hazard_number]; 
+        tempList = new GameObject[hazard_number];
         _diff = diff;
 
         for (int i = 0; i < hazard_number; i++)
@@ -143,7 +158,7 @@ public class GameController : MonoBehaviour
                 yield return new WaitForSeconds(spawnWait);
             }
             yield return new WaitForSeconds(waveWait);
-            
+
             //WaveCount++
             waveCount++;
 
