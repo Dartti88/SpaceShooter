@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject[] hazards; //Gameobject-array, syy: monia eri vihollisia
     public GameObject asteroid;
     public GameObject pickup;   // Pickup
     public Vector3 spawnValues; // Spawnien koordinaattien raja-arvot
@@ -26,7 +27,7 @@ public class GameController : MonoBehaviour
     private bool restart;
 
     //Wave counters
-    
+
     public int waveCount;   // Monesko taso on käynnissä
     /*
     private SpaceController currentSpace;
@@ -77,7 +78,7 @@ public class GameController : MonoBehaviour
         ////*** MAP
         //Create map and fill it with list of random hazards
         map = new GameObject[width, height][];
-        
+
         for (int i = 0; i < height; i++)
         {
             for (int j = 0; j < width; j++)
@@ -88,7 +89,7 @@ public class GameController : MonoBehaviour
                 map[j,i]=WaveList(i);
             }
         }
-    
+
         //map[0, 0] = new GameObject[] { pickup, pickup, pickup, pickup, asteroid, pickup, pickup, asteroid, pickup, asteroid, pickup, pickup, asteroid, pickup, asteroid };
         //map[0, 1] = new GameObject[] { pickup, pickup, asteroid, pickup, asteroid, pickup, pickup, asteroid, pickup, asteroid, pickup, pickup, asteroid, pickup, asteroid };
     }
@@ -112,7 +113,7 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < hazard_number; i++)
         {
-            
+
             int enemy = rnd.Next(1, 3);
             //add hazard to list
 
@@ -150,6 +151,7 @@ public class GameController : MonoBehaviour
 
             for (int i = 0; i < hazardCount; i++)
             {
+                GameObject hazard = hazards[Random.Range(0, hazards.Length)]; //mahdollistaa eri vihollisten spawnauksen: valitsee vihollisten listalta yhden vihollisen satunnaisesti
                 Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 currentHazardList = map[1, waveCount];
@@ -171,7 +173,7 @@ public class GameController : MonoBehaviour
                 restart = true;
                 break;
             }
-        }   
+        }
     }
 
     public void AddScore(int newScoreValue)
