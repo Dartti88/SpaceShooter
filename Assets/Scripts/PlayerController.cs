@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         else if (!forceField)
         {
             hitpoints = hitpoints - damage;
-            Debug.Log("Alukeen osuma, hp: " + hitpoints);
+            //Debug.Log("Alukeen osuma, hp: " + hitpoints);
         }
     }
 }
