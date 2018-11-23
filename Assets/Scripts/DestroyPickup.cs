@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 // Toimii tällä hetkellä kuten DestroyByContact, mutta vain osuessa pelaajan alukseen
-public class Pickup : MonoBehaviour {
+public class DestroyPickup : MonoBehaviour {
 
     private GameController gameController;
     private PlayerController playerController;

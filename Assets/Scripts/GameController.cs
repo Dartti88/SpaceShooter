@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
-
 public class GameController : MonoBehaviour
 {
     public GameObject[] hazards; //Gameobject-array, syy: monia eri vihollisia
@@ -19,8 +18,10 @@ public class GameController : MonoBehaviour
     public Text restartText;
     public Text gameOverText;
     public Text waveText;   // Teksti joka tulee tason alkaessa näytölle
-    private PlayerController playerController;  // Haetaan shield str
-    public Text shieldStrText;  // Shield str
+    private PlayerController playerController; 
+    public Text shieldStrText;
+    public Slider shieldStrSlider;
+    public RectTransform newFillRect;
 
     private int score;
     private bool gameOver;
@@ -53,14 +54,18 @@ public class GameController : MonoBehaviour
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
-        
-        // Haetaan player controller
+
         playerController = GameObject.FindObjectOfType<PlayerController>();
         if (playerController == null)
         {
             Debug.Log("Cannot find 'PlayerController' script");
         }
+
+        // Setting shield slider to player current shield strength, then assigning sliders max value to shield max value
         shieldStrText.text = "Shield: " +  playerController.getShieldStr() + "%";
+        shieldStrSlider.value = playerController.getShieldStr();
+        shieldStrSlider.maxValue = 100;
+
 
         score = 0;
         waveCount = 0;          // Wave count
@@ -97,6 +102,8 @@ public class GameController : MonoBehaviour
     void Update()
     {
         shieldStrText.text = "Shield: " + playerController.getShieldStr() + "%";
+        shieldStrSlider.value = playerController.getShieldStr();
+
         if (restart)
         {
             if (Input.GetKeyDown(KeyCode.R))

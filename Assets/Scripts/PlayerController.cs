@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Boundary
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private int hitpoints;
     private double shieldStr;
+    public Slider shieldStrSlider;
 
     private void Start()
     {
@@ -84,12 +86,10 @@ public class PlayerController : MonoBehaviour
         {
             yield return new WaitForSeconds(2);
         }
-        // Latautumisnopeus
+        // Charging speed
         shieldStr += 0.2;
     }
 
-
-    // Getterit
     public int getShieldStr()
     {
         return System.Convert.ToInt32(shieldStr);
