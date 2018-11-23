@@ -3,7 +3,13 @@ guid: b6cb78d8e430f5b4fb475a85a78e5d57
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - hazard: {fileID: 1797504238715380, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
+  - pickup: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - restartText: {instanceID: 0}
+  - gameOverText: {instanceID: 0}
+  - waveText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
