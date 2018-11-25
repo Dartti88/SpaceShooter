@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
-        
+
         // Kutsuu kentän latausmetodia, jos suojakentän % on alle 100
         // Coroutine metodin sisäisen ajastimen takia
         if(shieldStr < 100.0)
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<Rigidbody>().rotation = Quaternion.Euler(0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -tilt);
     }
 
-    // 100% suojakenttä estää vahingon alukseen. 
+    // 100% suojakenttä estää vahingon alukseen.
     // Osuma nollaa suojakentän
     public void damage(int damage)
     {
@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
     {
         if (shieldStr == 0)
         {
+            hitpoints = hitpoints - damage;
+            //Debug.Log("Alukeen osuma, hp: " + hitpoints);
             yield return new WaitForSeconds(2);
         }
         // Charging speed
