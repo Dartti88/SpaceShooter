@@ -22,12 +22,11 @@ GameObject:
   - component: {fileID: 33842546937692392}
   - component: {fileID: 23971285666965926}
   - component: {fileID: 65668730413285926}
-  - component: {fileID: 114925679412949246}
-  - component: {fileID: 114541462064340026}
   - component: {fileID: 54573837387622806}
+  - component: {fileID: 114392975222310738}
   m_Layer: 0
   m_Name: Pickup (generic)
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114541462064340026
+--- !u!114 &114392975222310738
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,18 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1815691655527350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4828e2d1e5e0d554484c07a97b36f68b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114925679412949246
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1815691655527350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab41e0095ce511243bf973a19893ce1a, type: 3}
+  m_Script: {fileID: 11500000, guid: f1bbdf371a3fbee47bab8af42c82e39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -5
