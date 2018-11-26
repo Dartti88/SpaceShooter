@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-// Toimii tällä hetkellä kuten DestroyByContact, mutta vain osuessa pelaajan alukseen
-public class DestroyPickup : MonoBehaviour {
-
+public class Pickup : MonoBehaviour {
+    public float speed;
     private GameController gameController;
     private PlayerController playerController;
 
     void Start()
     {
+        GetComponent<Rigidbody>().velocity = transform.forward * speed;
+
         gameController = GameObject.FindObjectOfType<GameController>();
         if (gameController == null)
         {
@@ -23,12 +23,14 @@ public class DestroyPickup : MonoBehaviour {
         }
     }
 
+
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             Debug.Log("Player picked pickup");
             Destroy(gameObject);
         }
     }
+
 }
