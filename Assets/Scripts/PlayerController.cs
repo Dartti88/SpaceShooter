@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
     {
         if (shieldStr == 0)
         {
-            hitpoints = hitpoints - damage;
+            //hitpoints = hitpoints - damage;
             //Debug.Log("Alukeen osuma, hp: " + hitpoints);
             yield return new WaitForSeconds(2);
         }
