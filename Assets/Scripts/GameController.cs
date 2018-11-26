@@ -110,13 +110,15 @@ public class GameController : MonoBehaviour
                 Application.LoadLevel(Application.loadedLevel);
             }
         }
+        shieldStrText.text = "Shield: " + playerController.getShieldStr() + "%";
+        shieldStrSlider.value = playerController.getShieldStr();
     }
 
     public GameObject[] WaveList(int diff)
     {
         hazard_number = 10;
 
-        Debug.Log("number of different enemies in this lane type: " + hazardsCurrentLane.Length); //DEBUG
+        //Debug.Log("number of different enemies in this lane type: " + hazardsCurrentLane.Length); //DEBUG
 
         tempList = new GameObject[hazard_number];
         _diff = diff;
@@ -124,11 +126,11 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < hazard_number; i++)
         {
             double enemy = Mathf.Floor((rnd.Next(0, (hazardsCurrentLane.Length-1)*10) *(_diff / 5+1))/10);
-            Debug.Log("Pre-Enemy number: " + enemy); //DEBUG
+            //Debug.Log("Pre-Enemy number: " + enemy); //DEBUG
             if (enemy < 0) {enemy = 0;}
             if (enemy > hazardsCurrentLane.Length-1) {enemy = hazardsCurrentLane.Length-1;}
 
-            Debug.Log("Final-Enemy number: " + enemy); //DEBUG
+            //Debug.Log("Final-Enemy number: " + enemy); //DEBUG
 
             //add hazard to list
             tempList[i] = hazardsCurrentLane[(int)enemy];

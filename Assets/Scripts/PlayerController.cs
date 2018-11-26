@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        hitpoints = 2;
+        hitpoints = 20;
         shieldStr = 100.0;
     }
 
@@ -71,9 +71,12 @@ public class PlayerController : MonoBehaviour
     // Osuma nollaa suojakentän
     public void damage(int damage)
     {
+        //Debug.Log("damage: " + damage);
         if (shieldStr < 100.0)
         {
+            //Debug.Log("hp: " + hitpoints);
             hitpoints = hitpoints - damage;
+            //Debug.Log("hp: " + hitpoints);
         }
         shieldStr = 0.0;
     }
@@ -84,8 +87,6 @@ public class PlayerController : MonoBehaviour
     {
         if (shieldStr == 0)
         {
-            hitpoints = hitpoints - damage;
-            //Debug.Log("Alukeen osuma, hp: " + hitpoints);
             yield return new WaitForSeconds(2);
         }
         // Charging speed

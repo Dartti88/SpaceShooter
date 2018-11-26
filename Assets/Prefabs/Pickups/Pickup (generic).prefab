@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65668730413285926}
   - component: {fileID: 54573837387622806}
   - component: {fileID: 114392975222310738}
+  - component: {fileID: 114801256616738426}
   m_Layer: 0
   m_Name: Pickup (generic)
   m_TagString: Pickup
@@ -125,3 +126,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -5
+--- !u!114 &114801256616738426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815691655527350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a51909277a1e6b46a3e0f4cf59b3796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tumble: 0

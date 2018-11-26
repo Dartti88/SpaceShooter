@@ -50,8 +50,10 @@ public class DestroyByContact : MonoBehaviour
         */
 
         // Eliaksen setit
+
         if (other.tag == "Player")
         {
+            Debug.Log("osuma");
             // Asteroidi räjähtää, saadaan pisteet
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             gameController.AddScore(scoreValue);
