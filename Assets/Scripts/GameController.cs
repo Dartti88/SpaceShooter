@@ -58,6 +58,13 @@ public class GameController : MonoBehaviour
     public Rect[,] rectangles;
         
     public int mapSize;
+    private enum Lane
+    {
+        asteroid,
+        space,
+        alien,
+        total
+    }
 
     void Start()
     {
@@ -161,15 +168,15 @@ public class GameController : MonoBehaviour
                     {
                         GUI.DrawTexture(rect, mapPlayerTexture);//,1,1,true,0,0,0,0,0,0);
                     }
-                    else if(j == 1)
+                    else if(j == (int)Lane.space)
                     {
                         GUI.DrawTexture(rect, mapSpaceTexture);
                     }
-                    else if(j == 0)
+                    else if(j == (int)Lane.asteroid)
                     {
                         GUI.DrawTexture(rect, mapAsteroidTexture);
                     }
-                    else if (j == 2)
+                    else if (j == (int)Lane.alien)
                     {
                         GUI.DrawTexture(rect, mapAlienTexture);
                     }
@@ -198,20 +205,17 @@ public class GameController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Keypad1))
             {
-                laneCount = 0;
-                Debug.Log("Lane: 0");
+                laneCount = (int)Lane.asteroid;
             }
 
             if (Input.GetKeyDown(KeyCode.Keypad2))
             {
-                laneCount = 1;
-                Debug.Log("Lane: 1");
+                laneCount = (int)Lane.space;
             }
 
             if (Input.GetKeyDown(KeyCode.Keypad3))
             {
-                laneCount = 2;
-                Debug.Log("Lane: 2");
+                laneCount = (int)Lane.alien;
             }
         }
         OnGUI(); //Update map to GUI
@@ -226,7 +230,7 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < hazard_number; i++)
         {
-            double enemy = Mathf.Floor((rnd.Next(0, (hazardsCurrentLane.Length-(hazardsCurrentLane.Length/3)) *10) *(_diff / hazardsCurrentLane.Length / 2))/10);
+            double enemy = Mathf.Floor((rnd.Next(0, (hazardsCurrentLane.Length-(hazardsCurrentLane.Length/3)) *10) *((_diff / (hazardsCurrentLane.Length-1)) +1))/10);
             if (enemy < 0) {enemy = 0;}
             if (enemy > hazardsCurrentLane.Length-1) {enemy = hazardsCurrentLane.Length-1;}
 
