@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public Vector3 spawnValues; // Spawnien koordinaattien raja-arvot
+    public Vector3 spawnValues;
     public int hazardCount;
     public float spawnWait;
     public float startWait;
@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
-    public Text waveText;   // Teksti joka tulee tason alkaessa näytölle
+    public Text waveText;
     private PlayerController playerController;
     public Text shieldStrText;
     public Slider shieldStrSlider;
@@ -109,7 +109,7 @@ public class GameController : MonoBehaviour
 
         #region Create table and fill it with list of waves
         //Create map and fill it with list of random hazards
-        
+
         map = new GameObject[width, height][];
         rectangles = new Rect[width, height];
         
@@ -176,13 +176,13 @@ public class GameController : MonoBehaviour
                 }
             }
         }
-        
+
     }
 
 
     void Update()
     {
-        
+
 
         if (restart==true)
         {
@@ -203,7 +203,7 @@ public class GameController : MonoBehaviour
             }
 
             if (Input.GetKeyDown(KeyCode.Keypad2))
-            {   
+            {
                 laneCount = 1;
                 Debug.Log("Lane: 1");
             }
@@ -261,12 +261,10 @@ public class GameController : MonoBehaviour
                     yield return new WaitForSeconds(spawnWait);
                 }
                 yield return new WaitForSeconds(waveWait);
-            
 
-            //WaveCount++
+
             waveCount++;
 
-            // Spawnataan pickup jokaisen aallon jälkeen
             /*
             Vector3 pickUpSpawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
             Quaternion pickUpSpawnRotation = Quaternion.identity;
@@ -280,7 +278,7 @@ public class GameController : MonoBehaviour
                 break;
             }
         }
-    }   
+    }
 
     public void AddScore(int newScoreValue)
     {
