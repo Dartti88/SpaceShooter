@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public Vector3 spawnValues; // Spawnien koordinaattien raja-arvot
+    public Vector3 spawnValues;
     public int hazardCount;
     public float spawnWait;
     public float startWait;
@@ -14,11 +14,10 @@ public class GameController : MonoBehaviour
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
-    public Text waveText;   // Teksti joka tulee tason alkaessa näytölle
+    public Text waveText;
     private PlayerController playerController;
     public Text shieldStrText;
     public Slider shieldStrSlider;
-    public RectTransform newFillRect;
 
     private int score;
     private bool gameOver;
@@ -26,7 +25,7 @@ public class GameController : MonoBehaviour
 
     //Wave counters
 
-    public int waveCount;   // Monesko taso on käynnissä
+    public int waveCount;   
     private int _diff;
     private int width = 3;
     private int height = 10;
@@ -144,7 +143,6 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(startWait);
         while (waveCount< hazard_number)
         {
-            // Näyttää monesko taso menossa
             waveText.text = "Wave: " + waveCount;
             yield return new WaitForSeconds(2);
             waveText.text = "";
@@ -161,10 +159,8 @@ public class GameController : MonoBehaviour
             }
             yield return new WaitForSeconds(waveWait);
 
-            //WaveCount++
             waveCount++;
 
-            // Spawnataan pickup jokaisen aallon jälkeen
             /*
             Vector3 pickUpSpawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
             Quaternion pickUpSpawnRotation = Quaternion.identity;
