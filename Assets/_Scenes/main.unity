@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4495026, g: 0.49649847, b: 0.559148, a: 1}
+  m_IndirectSpecularColor: {r: 0.44950223, g: 0.49649745, b: 0.5591471, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1747,6 +1747,7 @@ MonoBehaviour:
   mapPlayerTexture: {fileID: 2800000, guid: 4a2553d9a1214a446987449d5509fb60, type: 3}
   mapAsteroidTexture: {fileID: 2800000, guid: e53ec758dada3ce43a222d70419f8619, type: 3}
   mapAlienTexture: {fileID: 2800000, guid: bd2e794b6e7bc5243974e7bb5daf822c, type: 3}
+  mapSize: 30
 --- !u!4 &1681551530
 Transform:
   m_ObjectHideFlags: 0

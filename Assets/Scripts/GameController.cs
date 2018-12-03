@@ -56,7 +56,8 @@ public class GameController : MonoBehaviour
     public Texture mapAsteroidTexture;
     public Texture mapAlienTexture;
     public Rect[,] rectangles;
-
+        
+    public int mapSize;
 
     void Start()
     {
@@ -111,7 +112,7 @@ public class GameController : MonoBehaviour
         
         map = new GameObject[width, height][];
         rectangles = new Rect[width, height];
-        int mapSize = 25;
+        
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform>();
         double screenWidth = 3 * mapSize;// - (width / 2)* mapSize;
         double screenHeight = 3 * mapSize;// - (height / 2) * mapSize;
@@ -158,7 +159,7 @@ public class GameController : MonoBehaviour
 
                     if (j == laneCount && i == waveCount)
                     {
-                        GUI.DrawTexture(rect, mapPlayerTexture);
+                        GUI.DrawTexture(rect, mapPlayerTexture);//,1,1,true,0,0,0,0,0,0);
                     }
                     else if(j == 1)
                     {
@@ -225,7 +226,7 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < hazard_number; i++)
         {
-            double enemy = Mathf.Floor((rnd.Next(0, (hazardsCurrentLane.Length-1)*10) *(_diff / 5+1))/10);
+            double enemy = Mathf.Floor((rnd.Next(0, (hazardsCurrentLane.Length-(hazardsCurrentLane.Length/3)) *10) *(_diff / hazardsCurrentLane.Length / 2))/10);
             if (enemy < 0) {enemy = 0;}
             if (enemy > hazardsCurrentLane.Length-1) {enemy = hazardsCurrentLane.Length-1;}
 
