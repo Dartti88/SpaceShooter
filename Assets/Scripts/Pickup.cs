@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour {
+public class Pickup : MonoBehaviour
+{
     public float speed;
     private GameController gameController;
     private PlayerController playerController;
@@ -47,12 +48,12 @@ public class Pickup : MonoBehaviour {
                     case PickUpTypes.boost:
                         Debug.Log("Player picked boost");
                         speedBoost();
-                    break;
+                        break;
                     case PickUpTypes.score:
                         Debug.Log("Player picked score");
                         gameController.AddScore(100);
                         break;
-                }
+            }
             Destroy(gameObject);
         }
     }

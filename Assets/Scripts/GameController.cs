@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     private PlayerController playerController;
     public Text shieldStrText;
     public Slider shieldStrSlider;
+    public Text highScoreText;
     //public RectTransform newFillRect;
 
     private int hitpoints;
@@ -79,6 +80,7 @@ public class GameController : MonoBehaviour
         laneSelection = false;
         restartText.text = "";
         gameOverText.text = "";
+        highScoreText.text = "";
 
         playerController = GameObject.FindObjectOfType<PlayerController>();
         if (playerController == null)
@@ -102,26 +104,22 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnWaves());
 
         //Create Enemy list
-        hazardsAsteroidLane = new GameObject[7];
+        hazardsAsteroidLane = new GameObject[6];
         hazardsAsteroidLane[0] = asteroid_1;
         hazardsAsteroidLane[1] = asteroid_2;
         hazardsAsteroidLane[2] = asteroid_3;
         hazardsAsteroidLane[3] = asteroid_4;
         hazardsAsteroidLane[4] = asteroid_5;
         hazardsAsteroidLane[5] = asteroid_6;
-        hazardsAsteroidLane[6] = pickup;   // Pickup
 
-        hazardsSpaceLane = new GameObject[4];
+        hazardsSpaceLane = new GameObject[3];
         hazardsSpaceLane[0] = enemyShip_1;
         hazardsSpaceLane[1] = enemyShip_2;
         hazardsSpaceLane[2] = enemyShip_2;
-        hazardsSpaceLane[3] = pickup;   // Pickup
 
-        hazardsAlienLane = new GameObject[4];
+        hazardsAlienLane = new GameObject[2];
         hazardsAlienLane[0] = enemyShip_1;
         hazardsAlienLane[1] = enemyShip_2;
-        hazardsAlienLane[2] = pickup;
-        hazardsAlienLane[3] = pickup;   // Pickup
 
         hazardsCurrentLane = hazardsSpaceLane;
 
@@ -164,6 +162,8 @@ public class GameController : MonoBehaviour
         #endregion
     }
 
+    //voidOnGui()
+    #region 
     void OnGUI()
     {
         if (laneSelection==true)
@@ -196,7 +196,7 @@ public class GameController : MonoBehaviour
         }
 
     }
-
+    #endregion
 
     void Update()
     {
@@ -313,7 +313,31 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        HighScore(score);
+        highScoreText.text = "High score: " + PlayerPrefs.GetInt("Record");
+        //highScoreText.text = "High scores: \n" + HighScore(score);
+        
         gameOverText.text = "Game Over!";
         gameOver = true;
     }
+
+    // PlayerPrefs.SetInt("Key1", int);
+    // Haetaan GetInt("Key1");
+    // HasKey("Key1");
+
+    // Simple highscore method that gets called when game ends.
+    // Compares current score to previous (if there is one) and shows higher
+    public void HighScore(int score)
+    {
+
+        if (!PlayerPrefs.HasKey("Record"))
+        {
+            PlayerPrefs.SetInt("Record", score);
+        }
+        else if (score > PlayerPrefs.GetInt("Record"))
+        {
+            PlayerPrefs.SetInt("Record", score);
+        }
+    }
+
 }

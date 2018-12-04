@@ -32,12 +32,12 @@ public class DestroyByContact : MonoBehaviour
         {
             return;
         }
-
+        
         if (explosion != null)
         {
             Instantiate(explosion, transform.position, transform.rotation);
         }
-
+        
         // Collision with player
         if (other.tag == "Player")
         {
