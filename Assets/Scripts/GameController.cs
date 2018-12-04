@@ -17,7 +17,6 @@ public class GameController : MonoBehaviour
     public Text gameOverText;
     public Text waveText;   // Teksti joka tulee tason alkaessa näytölle
     private PlayerController playerController;
-    private EnemyHealth enemyHealth;
     public Text shieldStrText;
     public Slider shieldStrSlider;
     public RectTransform newFillRect;
@@ -66,7 +65,6 @@ public class GameController : MonoBehaviour
             Debug.Log("Cannot find 'PlayerController' script");
         }
 
-        enemyHealth = GameObject.FindObjectOfType<EnemyHealth>();
 
         // Setting shield slider to player current shield strength, then assigning sliders max value to shield max value
         shieldStrText.text = "Shield: " +  playerController.getShieldStr() + "%";

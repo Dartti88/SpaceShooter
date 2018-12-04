@@ -8,8 +8,6 @@ public class DestroyByContact : MonoBehaviour
     public int scoreValue;
     private GameController gameController;
     private PlayerController playerController;
-    private EnemyHealth enemyHealth;
-
     void Start()
     {
         gameController = GameObject.FindObjectOfType<GameController>();
