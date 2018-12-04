@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114074327672226068}
   - component: {fileID: 114426327546037854}
   - component: {fileID: 114710124553569572}
+  - component: {fileID: 114963449819538460}
   m_Layer: 0
   m_Name: Asteroid01
   m_TagString: Enemy
@@ -170,6 +171,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -5
+--- !u!114 &114963449819538460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1797504238715380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028268050f36ea4fa63d947fe23b8c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1
 --- !u!136 &136317006554330818
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public float startWait;
     public float waveWait;
 
+    public Text hitpointsText;
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
@@ -20,6 +21,7 @@ public class GameController : MonoBehaviour
     public Slider shieldStrSlider;
     //public RectTransform newFillRect;
 
+    private int hitpoints;
     private int score;
     private bool gameOver;
     private bool restart;
@@ -42,7 +44,11 @@ public class GameController : MonoBehaviour
     public GameObject asteroid_1;
     public GameObject asteroid_2;
     public GameObject asteroid_3;
+    public GameObject asteroid_4;
+    public GameObject asteroid_5;
+    public GameObject asteroid_6;
     public GameObject enemyShip_1;
+    public GameObject enemyShip_2;
     public GameObject pickup;   // Pickup
 
     public GameObject[,][] map;
@@ -56,7 +62,7 @@ public class GameController : MonoBehaviour
     public Texture mapAsteroidTexture;
     public Texture mapAlienTexture;
     public Rect[,] rectangles;
-        
+
     public int mapSize;
     private enum Lane
     {
@@ -80,10 +86,13 @@ public class GameController : MonoBehaviour
             Debug.Log("Cannot find 'PlayerController' script");
         }
 
+
         // Setting shield slider to player current shield strength, then assigning sliders max value to shield max value
         shieldStrText.text = "Shield: " +  playerController.getShieldStr() + "%";
         shieldStrSlider.value = playerController.getShieldStr();
         shieldStrSlider.maxValue = 100;
+        /*hitpoints = playerController.getHp();
+        showHitpoints();*/
 
         score = 0;
         waveCount = 0;          // Wave count
@@ -93,22 +102,24 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnWaves());
 
         //Create Enemy list
-        hazardsAsteroidLane = new GameObject[5];
+        hazardsAsteroidLane = new GameObject[7];
         hazardsAsteroidLane[0] = asteroid_1;
         hazardsAsteroidLane[1] = asteroid_2;
         hazardsAsteroidLane[2] = asteroid_3;
-        hazardsAsteroidLane[3] = enemyShip_1;
-        hazardsAsteroidLane[4] = pickup;   // Pickup
+        hazardsAsteroidLane[3] = asteroid_4;
+        hazardsAsteroidLane[4] = asteroid_5;
+        hazardsAsteroidLane[5] = asteroid_6;
+        hazardsAsteroidLane[6] = pickup;   // Pickup
 
         hazardsSpaceLane = new GameObject[4];
         hazardsSpaceLane[0] = enemyShip_1;
-        hazardsSpaceLane[1] = enemyShip_1;
-        hazardsSpaceLane[2] = enemyShip_1;
+        hazardsSpaceLane[1] = enemyShip_2;
+        hazardsSpaceLane[2] = enemyShip_2;
         hazardsSpaceLane[3] = pickup;   // Pickup
 
         hazardsAlienLane = new GameObject[4];
         hazardsAlienLane[0] = enemyShip_1;
-        hazardsAlienLane[1] = pickup;
+        hazardsAlienLane[1] = enemyShip_2;
         hazardsAlienLane[2] = pickup;
         hazardsAlienLane[3] = pickup;   // Pickup
 
@@ -119,7 +130,7 @@ public class GameController : MonoBehaviour
 
         map = new GameObject[width, height][];
         rectangles = new Rect[width, height];
-        
+
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform>();
         double screenWidth = 3 * mapSize;// - (width / 2)* mapSize;
         double screenHeight = 3 * mapSize;// - (height / 2) * mapSize;
@@ -294,6 +305,11 @@ public class GameController : MonoBehaviour
     {
         scoreText.text = "Score: " + score;
     }
+
+    /*void showHitpoints()
+    {
+        hitpointsText.text = "Hitpoints: " + playerController.getHp();
+    }*/
 
     public void GameOver()
     {

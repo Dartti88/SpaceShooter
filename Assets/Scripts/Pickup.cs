@@ -44,7 +44,7 @@ public class Pickup : MonoBehaviour {
                         Debug.Log("Player picked hp");
                         health();
                         break;
-                    case PickUpTypes.boost:    
+                    case PickUpTypes.boost:
                         Debug.Log("Player picked boost");
                         speedBoost();
                     break;
@@ -56,7 +56,7 @@ public class Pickup : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    
+
 
 
     // Methods for connecting pickups to playerController
