@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
     private int _diff;
     private int width = 3;
     private int height = 10;
-    private int hazard_number; //how many hazards/wave
+    public int hazard_number; //how many hazards/wave
 
     private GameObject[] hazardsAsteroidLane; //Gameobject-array, syy: monia eri vihollisia
     private GameObject[] hazardsSpaceLane;
@@ -51,6 +51,19 @@ public class GameController : MonoBehaviour
     public GameObject enemyShip_1;
     public GameObject enemyShip_2;
     public GameObject pickup;   // Pickup
+
+    private enum enemies 
+        {
+        asteroid_1,
+        asteroid_2,
+        asteroid_3,
+        asteroid_4,
+        asteroid_5,
+        asteroid_6,
+        enemyShip_1,
+        enemyShip_2,
+        total
+    }
 
     public GameObject[,][] map;
     public GameObject[] tempList;
@@ -123,7 +136,8 @@ public class GameController : MonoBehaviour
 
         hazardsCurrentLane = hazardsSpaceLane;
 
-        #region Create table and fill it with list of waves
+        //Create Waves
+        #region //Create table and fill it with list of waves
         //Create map and fill it with list of random hazards
 
         map = new GameObject[width, height][];
@@ -154,16 +168,21 @@ public class GameController : MonoBehaviour
                     Debug.Log("Lane: 3");
                 }
 
+                //Save lane info
                 map[j,i]=WaveList(i);
-                //Create visual map
-                rectangles[j, height - 1 - i] = new Rect((float)screenWidth/2 + j * mapSize, (float)screenHeight/2 + i * mapSize,  mapSize,  mapSize);
+
+                //Create visual map - Save map pieces reversed
+                rectangles[j, height - 1 - i] = new Rect(   (float)(j * mapSize + screenWidth+ (width * mapSize) / 2),
+                                                            (float)(i * mapSize + screenHeight /*+ (height * mapSize) / 2*/), 
+                                                             mapSize, mapSize);
+                                                            //(float)screenWidth*(1/2) + j * mapSize, (float)screenHeight * (1/2) + i * mapSize,  mapSize,  mapSize);
             }
-        }
+        }   
         #endregion
     }
 
-    //voidOnGui()
-    #region 
+    //GUI
+    #region //GUI - Mitä piirretään GUI layeriin
     void OnGUI()
     {
         if (laneSelection==true)
@@ -212,7 +231,7 @@ public class GameController : MonoBehaviour
         shieldStrText.text = "Shield: " + playerController.getShieldStr() + "%";
         shieldStrSlider.value = playerController.getShieldStr();
 
-        //if (laneSelection == true)
+        if (laneSelection == true)
         {
             if (Input.GetKeyDown(KeyCode.Keypad1))
             {
@@ -235,7 +254,7 @@ public class GameController : MonoBehaviour
     #region WaveList(int diff) - Generate list by diff/wave
     public GameObject[] WaveList(int diff)
     {
-        hazard_number = 10;
+        //hazard_number = 10;
         tempList = new GameObject[hazard_number];
         _diff = diff;
 
@@ -247,6 +266,34 @@ public class GameController : MonoBehaviour
 
             //add hazard to list
             tempList[i] = hazardsCurrentLane[(int)enemy];
+
+            int caps = 0;
+            switch ((int)enemy)
+            {
+                case (int)enemies.asteroid_1:
+                    break;
+                case (int)enemies.asteroid_2:
+                    break;
+                case (int)enemies.asteroid_3:
+                    break;
+                case (int)enemies.asteroid_4:
+                    break;
+                case (int)enemies.asteroid_5:
+                    caps = 1;
+                    for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
+                    break;
+                case (int)enemies.asteroid_6:
+                    caps = 2;
+                    for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
+                    break;
+                case (int)enemies.enemyShip_1:
+                    break;
+                case (int)enemies.enemyShip_2:
+                    caps = 1;
+                    for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
+                    break;
+            }
+
         }
 
         return tempList;
@@ -257,7 +304,7 @@ public class GameController : MonoBehaviour
     {
         //laneSelection = true;
         yield return new WaitForSeconds(startWait);
-        while (waveCount< hazard_number)
+        while (waveCount< hazardCount)
         {
             // Näyttää monesko taso menossa
             waveText.text = "Wave: " + (waveCount+1) + "\n" + "Select Path "+"\n"+"(Numbad 1-3)";
@@ -267,12 +314,15 @@ public class GameController : MonoBehaviour
             waveText.text = "";
             laneSelection = false;
             //Create wave
-            for (int i = 0; i < hazardCount; i++)
+            for (int i = 0; i < hazard_number; i++)
                 {
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     currentHazardList = map[laneCount, waveCount];
-                    Instantiate(currentHazardList[i], spawnPosition, spawnRotation);
+                    if (currentHazardList[i] != null)
+                        {
+                            Instantiate(currentHazardList[i], spawnPosition, spawnRotation);
+                        }
                     yield return new WaitForSeconds(spawnWait);
                 }
                 yield return new WaitForSeconds(waveWait);
