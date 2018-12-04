@@ -300,8 +300,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10864631081368b41b60b9932c3ab7ca, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   dodge: 10
   smoothing: 7.5
   tilt: 5
@@ -322,8 +322,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ab0b62602633ca42a5c7d1bfca16fc0, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   explosion: {fileID: 100012, guid: 384371afbb4354cc9a3fc68eab303756, type: 2}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
   scoreValue: 20
@@ -336,8 +336,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab41e0095ce511243bf973a19893ce1a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   speed: -4
 --- !u!114 &114474491438814936
 MonoBehaviour:
@@ -348,8 +348,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaa4c9b862e5f4c4daa3f1261c237f57, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   shot: {fileID: 1863266884354384, guid: aeb2d06d77b57344c9ecfdffda5312cc, type: 2}
   shotSpawn: {fileID: 4204078315570918}
   fireRate: 1.5
@@ -363,9 +363,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a028268050f36ea4fa63d947fe23b8c1, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  hp: 3
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 2
 --- !u!135 &135002209222648758
 SphereCollider:
   m_ObjectHideFlags: 1

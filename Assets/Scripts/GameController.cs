@@ -44,6 +44,9 @@ public class GameController : MonoBehaviour
     public GameObject asteroid_1;
     public GameObject asteroid_2;
     public GameObject asteroid_3;
+    public GameObject asteroid_4;
+    public GameObject asteroid_5;
+    public GameObject asteroid_6;
     public GameObject enemyShip_1;
     public GameObject enemyShip_2;
     public GameObject pickup;   // Pickup
@@ -99,23 +102,24 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnWaves());
 
         //Create Enemy list
-        hazardsAsteroidLane = new GameObject[6];
+        hazardsAsteroidLane = new GameObject[7];
         hazardsAsteroidLane[0] = asteroid_1;
         hazardsAsteroidLane[1] = asteroid_2;
         hazardsAsteroidLane[2] = asteroid_3;
-        hazardsAsteroidLane[3] = enemyShip_1;
-        hazardsAsteroidLane[4] = enemyShip_2;
-        hazardsAsteroidLane[5] = pickup;   // Pickup
+        hazardsAsteroidLane[3] = asteroid_4;
+        hazardsAsteroidLane[4] = asteroid_5;
+        hazardsAsteroidLane[5] = asteroid_6;
+        hazardsAsteroidLane[6] = pickup;   // Pickup
 
         hazardsSpaceLane = new GameObject[4];
         hazardsSpaceLane[0] = enemyShip_1;
-        hazardsSpaceLane[1] = enemyShip_1;
-        hazardsSpaceLane[2] = enemyShip_1;
+        hazardsSpaceLane[1] = enemyShip_2;
+        hazardsSpaceLane[2] = enemyShip_2;
         hazardsSpaceLane[3] = pickup;   // Pickup
 
         hazardsAlienLane = new GameObject[4];
         hazardsAlienLane[0] = enemyShip_1;
-        hazardsAlienLane[1] = pickup;
+        hazardsAlienLane[1] = enemyShip_2;
         hazardsAlienLane[2] = pickup;
         hazardsAlienLane[3] = pickup;   // Pickup
 

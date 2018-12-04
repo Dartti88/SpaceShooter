@@ -165,10 +165,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1749460291675884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3589ec71963de747aa4bdd2e629c65b, type: 3}
+  m_Script: {fileID: 11500000, guid: a028268050f36ea4fa63d947fe23b8c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoints: 1
+  hp: 1
 --- !u!114 &114435018306283334
 MonoBehaviour:
   m_ObjectHideFlags: 1
