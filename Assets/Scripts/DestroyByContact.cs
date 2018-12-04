@@ -8,6 +8,7 @@ public class DestroyByContact : MonoBehaviour
     public int scoreValue;
     private GameController gameController;
     private PlayerController playerController;
+    private EnemyHP enemyHp;
 
     void Start()
     {
@@ -58,6 +59,20 @@ public class DestroyByContact : MonoBehaviour
             gameController.AddScore(scoreValue);
             Destroy(other.gameObject);
             Destroy(gameObject);
+
+            /*
+            if (other.tag == "Enemy")
+            {
+                Destroy(gameObject);
+                enemyHp.takeDamage(1);
+                if (enemyHp.getHp<=0)
+                {
+                    Destroy(other.gameObject);
+                }
+                return;
+            }
+            */
+
         }
     }
 }
