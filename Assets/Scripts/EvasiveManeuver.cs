@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class EvasiveManeuver : MonoBehaviour {
-    //Koko homma vielä kommentoimatta
+public class EvasiveManeuver : MonoBehaviour
+{
+
     public float dodge;
     public float smoothing;
     public float tilt;
@@ -16,14 +16,14 @@ public class EvasiveManeuver : MonoBehaviour {
     private float targetManeuver;
     private Rigidbody rb;
 
-	void Start ()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         currentSpeed = rb.velocity.z;
         StartCoroutine(Evade());
-	}
+    }
 
-    IEnumerator Evade ()
+    IEnumerator Evade()
     {
         yield return new WaitForSeconds(Random.Range(startWait.x, startWait.y));
 
@@ -35,17 +35,18 @@ public class EvasiveManeuver : MonoBehaviour {
             yield return new WaitForSeconds(Random.Range(maneuverWait.x, maneuverWait.y));
         }
     }
-	
-	void FixedUpdate ()
+
+    void FixedUpdate()
     {
         float newManeuver = Mathf.MoveTowards(rb.velocity.x, targetManeuver, Time.deltaTime * smoothing);
         rb.velocity = new Vector3(newManeuver, 0.0f, currentSpeed);
         rb.position = new Vector3
-            (
-                Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
-                0.0f,
-                Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
-            );
-        rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * tilt);
-	}
+        (
+            Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
+            0.0f,
+            Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
+        );
+    
+        rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
+    }
 }

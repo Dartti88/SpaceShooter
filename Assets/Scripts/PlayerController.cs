@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     public float fireRate;
 
     private float nextFire;
-
     private int hitpoints;
     private double shieldStr;
     public Slider shieldStrSlider;

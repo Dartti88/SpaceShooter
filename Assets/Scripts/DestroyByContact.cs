@@ -8,6 +8,7 @@ public class DestroyByContact : MonoBehaviour
     public int scoreValue;
     private GameController gameController;
     private PlayerController playerController;
+    private EnemyHealth enemyHealth;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class DestroyByContact : MonoBehaviour
         {
             Instantiate(explosion, transform.position, transform.rotation);
         }
+
 
         // Alkuperäinen koodi asteroidi-pelaaja törmäyksille
         /*
@@ -67,11 +69,19 @@ public class DestroyByContact : MonoBehaviour
             }
         }
         // Muut tapaukset (asteroidiin osuu esim ammus)
+        /*
         else
         {
-            gameController.AddScore(scoreValue);
-            Destroy(other.gameObject);
-            Destroy(gameObject);
+            Instantiate(explosion, transform.position, transform.rotation);
+            enemyHealth.damage(1);
+            if (enemyHealth.getHp() == 0)
+            {
+                Destroy(other.gameObject);
+                gameController.AddScore(scoreValue);
+                Destroy(gameObject);
+            }
         }
+        */
     }
 }
+
