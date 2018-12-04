@@ -104,26 +104,22 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnWaves());
 
         //Create Enemy list
-        hazardsAsteroidLane = new GameObject[7];
+        hazardsAsteroidLane = new GameObject[6];
         hazardsAsteroidLane[0] = asteroid_1;
         hazardsAsteroidLane[1] = asteroid_2;
         hazardsAsteroidLane[2] = asteroid_3;
         hazardsAsteroidLane[3] = asteroid_4;
         hazardsAsteroidLane[4] = asteroid_5;
         hazardsAsteroidLane[5] = asteroid_6;
-        hazardsAsteroidLane[6] = pickup;   // Pickup
 
-        hazardsSpaceLane = new GameObject[4];
+        hazardsSpaceLane = new GameObject[3];
         hazardsSpaceLane[0] = enemyShip_1;
         hazardsSpaceLane[1] = enemyShip_2;
         hazardsSpaceLane[2] = enemyShip_2;
-        hazardsSpaceLane[3] = pickup;   // Pickup
 
-        hazardsAlienLane = new GameObject[4];
+        hazardsAlienLane = new GameObject[2];
         hazardsAlienLane[0] = enemyShip_1;
         hazardsAlienLane[1] = enemyShip_2;
-        hazardsAlienLane[2] = pickup;
-        hazardsAlienLane[3] = pickup;   // Pickup
 
         hazardsCurrentLane = hazardsSpaceLane;
 
@@ -343,5 +339,5 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt("Record", score);
         }
     }
-    
+
 }

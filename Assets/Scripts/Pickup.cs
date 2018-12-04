@@ -48,19 +48,11 @@ public class Pickup : MonoBehaviour
                     case PickUpTypes.boost:
                         Debug.Log("Player picked boost");
                         speedBoost();
-                    break;
-                case PickUpTypes.health:
-                    Debug.Log("Player picked hp");
-                    health();
-                    break;
-                case PickUpTypes.boost:
-                    Debug.Log("Player picked boost");
-                    speedBoost();
-                    break;
-                case PickUpTypes.score:
-                    Debug.Log("Player picked score");
-                    gameController.AddScore(100);
-                    break;
+                        break;
+                    case PickUpTypes.score:
+                        Debug.Log("Player picked score");
+                        gameController.AddScore(100);
+                        break;
             }
             Destroy(gameObject);
         }
