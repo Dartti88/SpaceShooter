@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour {
+public class Pickup : MonoBehaviour
+{
     public float speed;
     private GameController gameController;
     private PlayerController playerController;
@@ -35,28 +36,28 @@ public class Pickup : MonoBehaviour {
         if (other.tag == "Player")
         {
             switch (type)
-                {
-                    case PickUpTypes.weapon:
-                        Debug.Log("Player picked weapon");
-                        newWeapon();
-                        break;
-                    case PickUpTypes.health:
-                        Debug.Log("Player picked hp");
-                        health();
-                        break;
-                    case PickUpTypes.boost:    
-                        Debug.Log("Player picked boost");
-                        speedBoost();
+            {
+                case PickUpTypes.weapon:
+                    Debug.Log("Player picked weapon");
+                    newWeapon();
                     break;
-                    case PickUpTypes.score:
-                        Debug.Log("Player picked score");
-                        gameController.AddScore(100);
-                        break;
-                }
+                case PickUpTypes.health:
+                    Debug.Log("Player picked hp");
+                    health();
+                    break;
+                case PickUpTypes.boost:
+                    Debug.Log("Player picked boost");
+                    speedBoost();
+                    break;
+                case PickUpTypes.score:
+                    Debug.Log("Player picked score");
+                    gameController.AddScore(100);
+                    break;
+            }
             Destroy(gameObject);
         }
     }
-    
+
 
 
     // Methods for connecting pickups to playerController

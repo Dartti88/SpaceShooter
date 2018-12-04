@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     private PlayerController playerController;
     public Text shieldStrText;
     public Slider shieldStrSlider;
+    public Text highScoreText;
     //public RectTransform newFillRect;
 
     private int score;
@@ -65,6 +66,7 @@ public class GameController : MonoBehaviour
         laneSelection = false;
         restartText.text = "";
         gameOverText.text = "";
+        highScoreText.text = "";
 
         playerController = GameObject.FindObjectOfType<PlayerController>();
         if (playerController == null)
@@ -145,6 +147,8 @@ public class GameController : MonoBehaviour
         #endregion
     }
 
+    //voidOnGui()
+    #region 
     void OnGUI()
     {
         if (laneSelection==true)
@@ -177,7 +181,7 @@ public class GameController : MonoBehaviour
         }
 
     }
-
+    #endregion
 
     void Update()
     {
@@ -292,7 +296,31 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        HighScore(score);
+        highScoreText.text = "High score: " + PlayerPrefs.GetInt("Record");
+        //highScoreText.text = "High scores: \n" + HighScore(score);
+        
         gameOverText.text = "Game Over!";
         gameOver = true;
     }
+
+    // PlayerPrefs.SetInt("Key1", int);
+    // Haetaan GetInt("Key1");
+    // HasKey("Key1");
+
+    // Simple highscore method that gets called when game ends.
+    // Compares current score to previous (if there is one) and shows higher
+    public void HighScore(int score)
+    {
+
+        if (!PlayerPrefs.HasKey("Record"))
+        {
+            PlayerPrefs.SetInt("Record", score);
+        }
+        else if (score > PlayerPrefs.GetInt("Record"))
+        {
+            PlayerPrefs.SetInt("Record", score);
+        }
+    }
+    
 }
