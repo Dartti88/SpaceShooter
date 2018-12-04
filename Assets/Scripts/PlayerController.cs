@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private float nextFire;
     private float nextFire2;
 
+    public Text hitpointsText;
     private int hitpoints;
     private double shieldStr;
     public Slider shieldStrSlider;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         shieldStr = 100.0;
         secondWeapon = false;
         fireRate2 = fireRate * 4;
+        hitpointsText.text = "Hitpoints: " + hitpoints;
     }
 
     // Kontrollien vaihtaminen / lisääminen: Edit > Project Settings > Input
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(rechargeShield());
         }
+        hitpointsText.text = "Hitpoints: " + hitpoints;
     }
 
     void FixedUpdate()
