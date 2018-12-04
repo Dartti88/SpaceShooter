@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114345270400305264}
   - component: {fileID: 114016563879864928}
   - component: {fileID: 114201749483862144}
+  - component: {fileID: 114300617348019904}
   m_Layer: 0
   m_Name: Asteroid03
   m_TagString: Enemy
@@ -158,6 +159,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -5
+--- !u!114 &114300617348019904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000713138087040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028268050f36ea4fa63d947fe23b8c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1
 --- !u!114 &114345270400305264
 MonoBehaviour:
   m_ObjectHideFlags: 1

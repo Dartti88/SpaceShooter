@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        hitpoints = 1;
+        hitpoints = 20;
         shieldStr = 100.0;
         secondWeapon = false;
         fireRate2 = fireRate * 4;
@@ -41,15 +41,15 @@ public class PlayerController : MonoBehaviour
     // Fire1: left ctrl & mouse left, Fire2: left alt & mouse right, Fire3: left shift & mouse mid
     void Update()
     {
-        
+
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
-        
-        
+
+
         // If new weapon has been collected pressing mouse right will fire it
         // New weapon sounds needed
         if (secondWeapon == true && Input.GetButton("Fire2") && Time.time > nextFire2)
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(missile, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
-        
+
         // Kutsuu kentän latausmetodia, jos suojakentän % on alle 100
         // Coroutine metodin sisäisen ajastimen takia
         if(shieldStr < 100.0)

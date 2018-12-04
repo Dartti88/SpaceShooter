@@ -8,6 +8,7 @@ public class DestroyByContact : MonoBehaviour
     public int scoreValue;
     private GameController gameController;
     private PlayerController playerController;
+    private EnemyHP enemyHp;
 
     void Start()
     {
@@ -43,7 +44,7 @@ public class DestroyByContact : MonoBehaviour
             // Asteroid exlposion, scorevalue gets added, asteroid is destroyed
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             gameController.AddScore(scoreValue);
-            Destroy(gameObject);
+            Destroy(gameObject); //Tuhoaa toisen objectin jos osuu playeriin
             // Player takes damage, if hp goes to 0 player ship gets destroyed and game ends
             playerController.damage(1);
             if (playerController.getHp() == 0)
@@ -56,8 +57,22 @@ public class DestroyByContact : MonoBehaviour
         else
         {
             gameController.AddScore(scoreValue);
-            Destroy(other.gameObject);
-            Destroy(gameObject);
+            Destroy(other.gameObject); //Tuhoaa Boltin kun osuu johonkin
+            //Destroy(gameObject);
+
+            /*
+            if (other.tag == "Enemy")
+            {
+                Destroy(gameObject);
+                enemyHp.takeDamage(1);
+                if (enemyHp.getHp<=0)
+                {
+                    Destroy(other.gameObject);
+                }
+                return;
+            }
+            */
+
         }
     }
 }

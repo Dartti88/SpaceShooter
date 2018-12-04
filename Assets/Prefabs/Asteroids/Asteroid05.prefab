@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114079026825068262}
   - component: {fileID: 114435018306283334}
   - component: {fileID: 114039242533644506}
+  - component: {fileID: 114793046017598926}
   m_Layer: 0
   m_Name: Asteroid05
   m_TagString: Enemy
@@ -69,7 +70,7 @@ Transform:
   m_GameObject: {fileID: 1749460291675884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 0, z: 8}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4077627775664842}
   m_Father: {fileID: 0}
@@ -170,6 +171,18 @@ MonoBehaviour:
   explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 2}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
   scoreValue: 10
+--- !u!114 &114793046017598926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1749460291675884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028268050f36ea4fa63d947fe23b8c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 3
 --- !u!136 &136888395846770178
 CapsuleCollider:
   m_ObjectHideFlags: 1
