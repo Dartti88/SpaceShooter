@@ -8,6 +8,8 @@ public class DestroyByContact : MonoBehaviour
     public int scoreValue;
     private GameController gameController;
     private PlayerController playerController;
+    private EnemyHP enemyHp;
+
     void Start()
     {
         gameController = GameObject.FindObjectOfType<GameController>();
@@ -36,29 +38,14 @@ public class DestroyByContact : MonoBehaviour
             Instantiate(explosion, transform.position, transform.rotation);
         }
 
-
-        // Alkuperäinen koodi asteroidi-pelaaja törmäyksille
-        /*
+        // Collision with player
         if (other.tag == "Player")
         {
-            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            gameController.GameOver();
-        }
-        gameController.AddScore(scoreValue);
-        Destroy(other.gameObject);
-        Destroy(gameObject);
-        */
-
-        // Eliaksen setit
-
-        if (other.tag == "Player")
-        {
-            Debug.Log("osuma");
-            // Asteroidi räjähtää, saadaan pisteet
+            // Asteroid exlposion, scorevalue gets added, asteroid is destroyed
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             gameController.AddScore(scoreValue);
             Destroy(gameObject);
-            // Pelaaja ottaa osumaa, jos hp nollaan peli päättyy
+            // Player takes damage, if hp goes to 0 player ship gets destroyed and game ends
             playerController.damage(1);
             if (playerController.getHp() == 0)
             {
@@ -66,20 +53,27 @@ public class DestroyByContact : MonoBehaviour
                 gameController.GameOver();
             }
         }
-        // Muut tapaukset (asteroidiin osuu esim ammus)
-        /*
+        // When other, non-player, object game object hits object
         else
         {
-            Instantiate(explosion, transform.position, transform.rotation);
-            enemyHealth.damage(1);
-            if (enemyHealth.getHp() == 0)
+            gameController.AddScore(scoreValue);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+
+            /*
+            if (other.tag == "Enemy")
             {
-                Destroy(other.gameObject);
-                gameController.AddScore(scoreValue);
                 Destroy(gameObject);
+                enemyHp.takeDamage(1);
+                if (enemyHp.getHp<=0)
+                {
+                    Destroy(other.gameObject);
+                }
+                return;
             }
+            */
+
         }
         */
     }
 }
-

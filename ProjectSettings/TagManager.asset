@@ -8,6 +8,7 @@ TagManager:
   - scoreText
   - Enemy
   - Pickup
+  - playerTag
   layers:
   - Default
   - TransparentFX

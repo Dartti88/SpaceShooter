@@ -4,12 +4,21 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - hazard: {fileID: 1797504238715380, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
-  - pickup: {instanceID: 0}
   - scoreText: {instanceID: 0}
   - restartText: {instanceID: 0}
   - gameOverText: {instanceID: 0}
   - waveText: {instanceID: 0}
+  - shieldStrText: {instanceID: 0}
+  - shieldStrSlider: {instanceID: 0}
+  - asteroid_1: {instanceID: 0}
+  - asteroid_2: {instanceID: 0}
+  - asteroid_3: {instanceID: 0}
+  - enemyShip_1: {instanceID: 0}
+  - pickup: {instanceID: 0}
+  - mapSpaceTexture: {fileID: 2800000, guid: 97474ee54d60efa4ebf1010a7158b1dc, type: 3}
+  - mapPlayerTexture: {instanceID: 0}
+  - mapAsteroidTexture: {instanceID: 0}
+  - mapAlienTexture: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

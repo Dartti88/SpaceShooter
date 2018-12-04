@@ -15,28 +15,48 @@ public class PlayerController : MonoBehaviour
     public Boundary boundary;
 
     public GameObject shot;
+    public GameObject missile;
     public Transform shotSpawn;
     public float fireRate;
+    private float fireRate2;    // Firerate of secondary weapon
 
     private float nextFire;
+    private float nextFire2;
+
     private int hitpoints;
     private double shieldStr;
     public Slider shieldStrSlider;
+
+    public bool secondWeapon; // If true enables firing from rightclick
 
     private void Start()
     {
         hitpoints = 20;
         shieldStr = 100.0;
+        secondWeapon = false;
+        fireRate2 = fireRate * 4;
     }
 
     // Kontrollien vaihtaminen / lisääminen: Edit > Project Settings > Input
     // Fire1: left ctrl & mouse left, Fire2: left alt & mouse right, Fire3: left shift & mouse mid
     void Update()
     {
+
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            GetComponent<AudioSource>().Play();
+        }
+
+
+        // If new weapon has been collected pressing mouse right will fire it
+        // New weapon sounds needed
+        if (secondWeapon == true && Input.GetButton("Fire2") && Time.time > nextFire2)
+        {
+            // Firerate for shots is 0.25s
+            nextFire2 = Time.time + fireRate2;
+            Instantiate(missile, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
 
@@ -92,6 +112,26 @@ public class PlayerController : MonoBehaviour
         }
         // Charging speed
         shieldStr += 0.2;
+    }
+
+    public void changeSpeed(int speedPlus)
+    {
+        // Debug.Log("pre speed:" + speed);
+        speed += speedPlus;
+        // Debug.Log("aft speed:" + speed);
+
+    }
+
+    public void newWeapon()
+    {
+        secondWeapon = true;
+        //Debug.Log("weapon2 = " + secondWeapon);
+    }
+
+    // Method that is called from pickup class when player collects hp pickup
+    public void increaseHp()
+    {
+        hitpoints++;
     }
 
     public int getShieldStr()
