@@ -63,6 +63,7 @@ public class GameController : MonoBehaviour
         asteroid_6,
         enemyShip_1,
         enemyShip_2,
+        enemyShip_3,
         total
     }
 
@@ -126,10 +127,13 @@ public class GameController : MonoBehaviour
         hazardsAsteroidLane[4] = asteroid_5;
         hazardsAsteroidLane[5] = asteroid_6;
 
-        hazardsSpaceLane = new GameObject[3];
+        hazardsSpaceLane = new GameObject[6];
         hazardsSpaceLane[0] = enemyShip_1;
-        hazardsSpaceLane[1] = enemyShip_2;
-        hazardsSpaceLane[2] = enemyShip_3;
+        hazardsSpaceLane[1] = enemyShip_1;
+        hazardsSpaceLane[2] = enemyShip_2;
+        hazardsSpaceLane[3] = enemyShip_1;
+        hazardsSpaceLane[4] = enemyShip_2;
+        hazardsSpaceLane[5] = enemyShip_3;
 
         hazardsAlienLane = new GameObject[2];
         hazardsAlienLane[0] = enemyShip_1;
@@ -279,7 +283,7 @@ public class GameController : MonoBehaviour
                 case (int)enemies.asteroid_6:  caps = 1; break;
                 case (int)enemies.enemyShip_1: caps = 2; break;
                 case (int)enemies.enemyShip_2: caps = 4; break;
-                //case (int)enemies.enemyShip_3: caps = 9; break;
+                case (int)enemies.enemyShip_3: caps = 9; break;
             }
             if (caps>0)
             {
