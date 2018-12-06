@@ -34,4 +34,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+<<<<<<< HEAD
 Assets/Scenes.meta
+=======
+Assets/SpaceCraft 0.meta
+>>>>>>> parent of 2c959df... Revert "Merge branch 'master' of https://github.com/Dartti88/SpaceShooter"
