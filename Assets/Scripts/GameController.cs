@@ -50,9 +50,10 @@ public class GameController : MonoBehaviour
     public GameObject asteroid_6;
     public GameObject enemyShip_1;
     public GameObject enemyShip_2;
+    public GameObject enemyShip_3;
     public GameObject pickup;   // Pickup
 
-    private enum enemies 
+    private enum enemies
         {
         asteroid_1,
         asteroid_2,
@@ -103,7 +104,7 @@ public class GameController : MonoBehaviour
 
 
         // Setting shield slider to player current shield strength, then assigning sliders max value to shield max value
-        shieldStrText.text = "Shield: " +  playerController.getShieldStr() + "%";
+        shieldStrText.text = "Shield: " + playerController.getShieldStr() + "%";
         shieldStrSlider.value = playerController.getShieldStr();
         shieldStrSlider.maxValue = 100;
         /*hitpoints = playerController.getHp();
@@ -128,7 +129,7 @@ public class GameController : MonoBehaviour
         hazardsSpaceLane = new GameObject[3];
         hazardsSpaceLane[0] = enemyShip_1;
         hazardsSpaceLane[1] = enemyShip_2;
-        hazardsSpaceLane[2] = enemyShip_2;
+        hazardsSpaceLane[2] = enemyShip_3;
 
         hazardsAlienLane = new GameObject[2];
         hazardsAlienLane[0] = enemyShip_1;
@@ -173,11 +174,11 @@ public class GameController : MonoBehaviour
 
                 //Create visual map - Save map pieces reversed
                 rectangles[j, height - 1 - i] = new Rect(   (float)(j * mapSize + screenWidth+ (width * mapSize) / 2),
-                                                            (float)(i * mapSize + screenHeight /*+ (height * mapSize) / 2*/), 
+                                                            (float)(i * mapSize + screenHeight /*+ (height * mapSize) / 2*/),
                                                              mapSize, mapSize);
                                                             //(float)screenWidth*(1/2) + j * mapSize, (float)screenHeight * (1/2) + i * mapSize,  mapSize,  mapSize);
             }
-        }   
+        }
         #endregion
     }
 
@@ -185,7 +186,7 @@ public class GameController : MonoBehaviour
     #region //GUI - Mitä piirretään GUI layeriin
     void OnGUI()
     {
-        if (laneSelection==true)
+        if (laneSelection == true)
         {
             for (int i = 0; i < height; i++)
             {
@@ -198,11 +199,11 @@ public class GameController : MonoBehaviour
                     {
                         GUI.DrawTexture(rect, mapPlayerTexture);//,1,1,true,0,0,0,0,0,0);
                     }
-                    else if(j == (int)Lane.space)
+                    else if (j == (int)Lane.space)
                     {
                         GUI.DrawTexture(rect, mapSpaceTexture);
                     }
-                    else if(j == (int)Lane.asteroid)
+                    else if (j == (int)Lane.asteroid)
                     {
                         GUI.DrawTexture(rect, mapAsteroidTexture);
                     }
@@ -221,7 +222,7 @@ public class GameController : MonoBehaviour
     {
 
 
-        if (restart==true)
+        if (restart == true)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -260,9 +261,9 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < hazard_number; i++)
         {
-            double enemy = Mathf.Floor((rnd.Next(0, (hazardsCurrentLane.Length-(hazardsCurrentLane.Length/3)) *10) *((_diff / (hazardsCurrentLane.Length-1)) +1))/10);
-            if (enemy < 0) {enemy = 0;}
-            if (enemy > hazardsCurrentLane.Length-1) {enemy = hazardsCurrentLane.Length-1;}
+            double enemy = Mathf.Floor((rnd.Next(0, (hazardsCurrentLane.Length - (hazardsCurrentLane.Length / 3)) * 10) * ((_diff / (hazardsCurrentLane.Length - 1)) + 1)) / 10);
+            if (enemy < 0) { enemy = 0; }
+            if (enemy > hazardsCurrentLane.Length - 1) { enemy = hazardsCurrentLane.Length - 1; }
 
             //add hazard to list
             tempList[i] = hazardsCurrentLane[(int)enemy];
@@ -298,7 +299,7 @@ public class GameController : MonoBehaviour
         while (waveCount< hazardCount)
         {
             // Näyttää monesko taso menossa
-            waveText.text = "Wave: " + (waveCount+1) + "\n" + "Select Path "+"\n"+"(Numbad 1-3)";
+            waveText.text = "Wave: " + (waveCount + 1) + "\n" + "Select Path " + "\n" + "(Numbad 1-3)";
             laneSelection = true;
 
             yield return new WaitForSeconds(5);
@@ -354,12 +355,13 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        HighScore(score);
-        highScoreText.text = "High score: " + PlayerPrefs.GetInt("Record");
-        //highScoreText.text = "High scores: \n" + HighScore(score);
-        
+        //HighScore(score);
+        //highScoreText.text = "High score: " + PlayerPrefs.GetInt("Record");
+
         gameOverText.text = "Game Over!";
         gameOver = true;
+        highScoreText.text = "High scores: \n" + ListHighScore(score);
+
     }
 
     // PlayerPrefs.SetInt("Key1", int);
@@ -368,6 +370,7 @@ public class GameController : MonoBehaviour
 
     // Simple highscore method that gets called when game ends.
     // Compares current score to previous (if there is one) and shows higher
+    /*
     public void HighScore(int score)
     {
 
@@ -380,5 +383,62 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt("Record", score);
         }
     }
+    */
 
+    // Returns max 5 highest scores in order
+    public string ListHighScore(int score)
+    {
+        // Temporary list for previous scores and newest one. If there are less than 5 the rest are filled with 0's
+        int[] scoresTemp = new int[6];
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.HasKey("Score" + i))
+            {
+                scoresTemp[i] = PlayerPrefs.GetInt("Score" + i);
+            }
+            else
+            {
+                scoresTemp[i] = 0;
+            }
+        }
+        scoresTemp[5] = score;
+
+        // List that is going to 5 highest scores in descending order
+        int[] scoresFinal = new int[5];
+        int tempScore = 0;
+        int tempIndex = 0;
+
+        // Sorting algorithm
+        for (int j = 0; j <5; j++)
+        {
+            for (int t = 0; t < scoresTemp.Length; t++)
+            {
+                if (tempScore < scoresTemp[t])
+                {
+                    tempScore = scoresTemp[t];
+                    tempIndex = t;
+                }
+            }
+            scoresFinal[j] = tempScore;
+            tempScore = 0;
+            scoresTemp[tempIndex] = 0;
+        }
+
+        // Scores are added to string and non zero one are saved to PlayerPrefs
+        string sortedHighScoreString = "";
+        for (int i = 0; i < 5; i++)
+        {
+            if (scoresFinal[i] == 0)
+            {
+                sortedHighScoreString += i + ": -\n";
+            }
+
+            else
+            {
+                sortedHighScoreString += i + ": " + scoresFinal[i] + "\n";
+                PlayerPrefs.SetInt("Score" + i, scoresFinal[i]);
+            }
+        }
+        return sortedHighScoreString;
+    }
 }
