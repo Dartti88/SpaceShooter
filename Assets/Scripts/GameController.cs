@@ -141,6 +141,8 @@ public class GameController : MonoBehaviour
         hazardsAlienLane[1] = enemyShip_2;
 
         hazardsAlienLane = new GameObject[1];
+        hazardsAlienLane[0] = alien_1;
+
         hazardsCurrentLane = hazardsSpaceLane;
 
         //Create Waves
