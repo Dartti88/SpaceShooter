@@ -273,21 +273,33 @@ public class GameController : MonoBehaviour
             tempList[i] = hazardsCurrentLane[(int)enemy];
 
             int caps = 0;
-            switch ((int)enemy)
+
+            if (hazardsCurrentLane[(int)enemy] == asteroid_1) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == asteroid_2) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == asteroid_3) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == asteroid_4) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == asteroid_5) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == asteroid_6) { caps = 1; }
+            else if (hazardsCurrentLane[(int)enemy] == enemyShip_1) { caps = 2; }
+            else if (hazardsCurrentLane[(int)enemy] == enemyShip_2) { caps = 4; }
+            else if (hazardsCurrentLane[(int)enemy] == enemyShip_3) { caps = 9; }
+            /*
+            switch (hazardsCurrentLane[(int)enemy])
             {
-                case (int)enemies.asteroid_1: break;
-                case (int)enemies.asteroid_2: break;
+                case (GameObject)asteroid_1: break;
+                case asteroid_2: break;
                 case (int)enemies.asteroid_3: break;
                 case (int)enemies.asteroid_4: break;
-                case (int)enemies.asteroid_5: caps = 1; break;
-                case (int)enemies.asteroid_6:  caps = 1; break;
-                case (int)enemies.enemyShip_1: caps = 2; break;
-                case (int)enemies.enemyShip_2: caps = 4; break;
-                case (int)enemies.enemyShip_3: caps = 9; break;
+                case (int)enemies.asteroid_5: caps = 1; Debug.Log("Cap: 1"); break;
+                case (int)enemies.asteroid_6: caps = 1; Debug.Log("Cap: 1"); break;
+                case (int)enemies.enemyShip_1: caps = 2; Debug.Log("Cap: 2"); break;
+                case (int)enemies.enemyShip_2: caps = 4; Debug.Log("Cap: 4"); break;
+                case (int)enemies.enemyShip_3: caps = 9; Debug.Log("Cap: 9"); break;
             }
+            */
             if (caps>0)
             {
-                for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
+                for (int j = 1; j <= caps; j++) { if ((i + j) < hazard_number) { tempList[i + j] = null; i++; } }
             }
 
         }
