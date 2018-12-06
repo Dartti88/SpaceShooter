@@ -447,6 +447,9 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 --- !u!1 &493028923
@@ -494,10 +497,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
 >>>>>>> ad05dca2e07f1c1d0a7775b5bf3006e69e79be76
+=======
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -540,7 +548,11 @@ Prefab:
     - target: {fileID: 400000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 2
+=======
+      value: 3
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
       value: 3
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
@@ -840,8 +852,11 @@ Light:
   m_ShadowAngle: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
+=======
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 --- !u!1001 &555754507
 Prefab:
   m_ObjectHideFlags: 0
@@ -884,6 +899,9 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9230da911176349861579ddbe505af, type: 2}
   m_IsPrefabAsset: 0
+<<<<<<< HEAD
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
+=======
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 --- !u!1001 &569238128
 Prefab:
@@ -1074,10 +1092,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 7
 =======
   m_RootOrder: 10
 >>>>>>> ad05dca2e07f1c1d0a7775b5bf3006e69e79be76
+=======
+  m_RootOrder: 16
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
   m_RootOrder: 16
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
@@ -1287,7 +1309,11 @@ RectTransform:
   - {fileID: 1780467656}
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 10
+=======
+  m_RootOrder: 21
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
   m_RootOrder: 21
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
@@ -1374,10 +1400,14 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &937707212
 =======
 --- !u!1001 &852577454
 >>>>>>> ad05dca2e07f1c1d0a7775b5bf3006e69e79be76
+=======
+--- !u!1001 &1037155159
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
 --- !u!1001 &1037155159
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
@@ -1389,14 +1419,23 @@ Prefab:
     m_Modifications:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 4751503698537978, guid: 23d3e942a2e74244d903b2f2b65c58df, type: 2}
+=======
+    - target: {fileID: 4783566898642856, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 166.119
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 4751503698537978, guid: 23d3e942a2e74244d903b2f2b65c58df, type: 2}
+=======
+    - target: {fileID: 4783566898642856, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 814.5757
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 4751503698537978, guid: 23d3e942a2e74244d903b2f2b65c58df, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -1447,6 +1486,20 @@ Prefab:
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
+=======
+    - target: {fileID: 4783566898642856, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 716.808
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783566898642856, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783566898642856, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
     - target: {fileID: 4783566898642856, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
@@ -1457,6 +1510,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4783566898642856, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
 <<<<<<< HEAD
       value: 16
       objectReference: {fileID: 0}
@@ -1487,6 +1541,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bba27ca7f5f29864e9bbbc1e3be68251, type: 2}
 >>>>>>> ad05dca2e07f1c1d0a7775b5bf3006e69e79be76
+=======
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 789357f7cba44854fa932b133b32e61f, type: 2}
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
       value: 2
       objectReference: {fileID: 0}
@@ -1873,10 +1933,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 5
 =======
   m_RootOrder: 6
 >>>>>>> ad05dca2e07f1c1d0a7775b5bf3006e69e79be76
+=======
+  m_RootOrder: 12
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
   m_RootOrder: 12
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
@@ -2213,10 +2277,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
   m_RootOrder: 14
+=======
+  m_RootOrder: 20
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
   m_RootOrder: 20
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
@@ -2277,8 +2345,11 @@ Prefab:
   m_SourcePrefab: {fileID: 100100000, guid: 23d3e942a2e74244d903b2f2b65c58df, type: 2}
   m_IsPrefabAsset: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> ad05dca2e07f1c1d0a7775b5bf3006e69e79be76
 =======
+=======
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 --- !u!1001 &1662108276
 Prefab:
   m_ObjectHideFlags: 0
@@ -2321,6 +2392,9 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37d7530809deca9409e26e608e5b9dce, type: 2}
   m_IsPrefabAsset: 0
+<<<<<<< HEAD
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
+=======
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 --- !u!1 &1681551528
 GameObject:
@@ -2398,10 +2472,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 8
 =======
   m_RootOrder: 11
 >>>>>>> ad05dca2e07f1c1d0a7775b5bf3006e69e79be76
+=======
+  m_RootOrder: 17
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
   m_RootOrder: 17
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
@@ -2718,6 +2796,9 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 --- !u!1 &1791577656
@@ -2772,10 +2853,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
 >>>>>>> ad05dca2e07f1c1d0a7775b5bf3006e69e79be76
+=======
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3039,10 +3125,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 6
 =======
   m_RootOrder: 8
 >>>>>>> ad05dca2e07f1c1d0a7775b5bf3006e69e79be76
+=======
+  m_RootOrder: 14
+>>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
 =======
   m_RootOrder: 14
 >>>>>>> parent of eefafe9... Merge branch 'master' of https://github.com/Dartti88/SpaceShooter
