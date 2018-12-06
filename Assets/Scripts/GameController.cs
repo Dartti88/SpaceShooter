@@ -51,7 +51,6 @@ public class GameController : MonoBehaviour
     public GameObject enemyShip_1;
     public GameObject enemyShip_2;
     public GameObject enemyShip_3;
-    public GameObject alien_1;
     public GameObject pickup;   // Pickup
 
     private enum enemies
@@ -65,7 +64,6 @@ public class GameController : MonoBehaviour
         enemyShip_1,
         enemyShip_2,
         enemyShip_3,
-        alien_1,
         total
     }
 
@@ -137,8 +135,9 @@ public class GameController : MonoBehaviour
         hazardsSpaceLane[4] = enemyShip_2;
         hazardsSpaceLane[5] = enemyShip_3;
 
-        hazardsAlienLane = new GameObject[1];
-        hazardsAlienLane[0] = alien_1;
+        hazardsAlienLane = new GameObject[2];
+        hazardsAlienLane[0] = enemyShip_1;
+        hazardsAlienLane[1] = enemyShip_2;
 
         hazardsCurrentLane = hazardsSpaceLane;
 
