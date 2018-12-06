@@ -351,7 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 1863266884354384, guid: aeb2d06d77b57344c9ecfdffda5312cc, type: 2}
   shotSpawn: {fileID: 4204078315570918}
-  fireRate: 1.5
+  fireRate: 3
   delay: 0.5
 --- !u!114 &114598459108826596
 MonoBehaviour:
