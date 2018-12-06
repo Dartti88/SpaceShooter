@@ -137,8 +137,7 @@ public class GameController : MonoBehaviour
         hazardsSpaceLane[4] = enemyShip_2;
         hazardsSpaceLane[5] = enemyShip_3;
 
-        hazardsAlienLane = new GameObject[2];
-        hazardsAlienLane[0] = alien_1;
+        hazardsAlienLane = new GameObject[1];
         hazardsAlienLane[0] = alien_1;
 
         hazardsCurrentLane = hazardsSpaceLane;
