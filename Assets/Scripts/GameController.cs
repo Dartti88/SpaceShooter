@@ -136,11 +136,14 @@ public class GameController : MonoBehaviour
         hazardsSpaceLane[5] = enemyShip_3;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         hazardsAlienLane = new GameObject[2];
         hazardsAlienLane[0] = enemyShip_1;
         hazardsAlienLane[1] = enemyShip_2;
 
+=======
+>>>>>>> parent of ad05dca... [Dart] Merge meta shit
 =======
 >>>>>>> parent of ad05dca... [Dart] Merge meta shit
         hazardsAlienLane = new GameObject[1];
