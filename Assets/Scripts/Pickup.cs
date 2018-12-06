@@ -39,7 +39,8 @@ public class Pickup : MonoBehaviour
                 {
                     case PickUpTypes.weapon:
                         Debug.Log("Player picked weapon");
-                        newWeapon();
+                        upgradeWeapon();
+                        //newWeapon();
                         break;
                     case PickUpTypes.health:
                         Debug.Log("Player picked hp");
@@ -68,10 +69,18 @@ public class Pickup : MonoBehaviour
         playerController.changeSpeed(4);
     }
 
+    public void upgradeWeapon()
+    {
+        playerController.upgradeWeapon();
+    }
+
+    // Currently weapon pickup upgrades players weapon level
+    /*
     public void newWeapon()
     {
         playerController.newWeapon();
     }
+    */
 
     public void health()
     {

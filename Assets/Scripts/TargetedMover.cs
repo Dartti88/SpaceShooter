@@ -14,7 +14,6 @@ public class TargetedMover : MonoBehaviour {
 	void Start ()
     {
         targetEnemy = GameObject.FindWithTag("Enemy");
-        //targetEnemy = GameObject.Find("Enemy Ship");
         if (targetEnemy == null)
         {
             Debug.Log("No target");
@@ -34,11 +33,4 @@ public class TargetedMover : MonoBehaviour {
         }
         
     }
-
-    public void Fire()
-    {
-
-    }
 }
-//GameObject temp = GameObject.Find("house");
-//Transform houseTransform = temp.GetComponent<Transform>();

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Boundary boundary;
 
     public GameObject shot;
+
     public GameObject missile;
     public Transform shotSpawn;
     public float fireRate;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public Slider shieldStrSlider;
 
     public bool secondWeapon; // If true enables firing from rightclick
+    private int weaponLevel;
 
     private void Start()
     {
@@ -36,18 +38,54 @@ public class PlayerController : MonoBehaviour
         shieldStr = 100.0;
         secondWeapon = false;
         fireRate2 = fireRate * 4;
+        weaponLevel = 1;
         hitpointsText.text = "Hitpoints: " + hitpoints;
     }
 
     // Kontrollien vaihtaminen / lisääminen: Edit > Project Settings > Input
     // Fire1: left ctrl & mouse left, Fire2: left alt & mouse right, Fire3: left shift & mouse mid
     void Update()
-    {
-
+    { 
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            // Firing normal weapon checks weapon level 
+            //Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            Vector3 shotSpawnLeft = new Vector3(shotSpawn.position.x + 0.3f, 0.0f, shotSpawn.position.z);
+            Vector3 shotSpawnRight = new Vector3(shotSpawn.position.x - 0.3f, 0.0f, shotSpawn.position.z);
+            if (weaponLevel > 5)
+            {
+                weaponLevel = 5;
+            }
+            switch (weaponLevel)
+            {
+                case 1:
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    break;
+                case 2:
+                    Vector3 shotSpawnLeft2 = new Vector3(shotSpawn.position.x + 0.2f, 0.0f, shotSpawn.position.z);
+                    Vector3 shotSpawnRight2 = new Vector3(shotSpawn.position.x - 0.2f, 0.0f, shotSpawn.position.z);
+                    Instantiate(shot, shotSpawnLeft2, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawnRight2, shotSpawn.rotation);
+                    break;
+                case 3:
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawnLeft, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
+                    break;
+                case 4:
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawnLeft, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
+                    break;
+                case 5:
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawnLeft, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
+                    break;
+            }
+            
+
             GetComponent<AudioSource>().Play();
         }
 
@@ -98,11 +136,13 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("hp: " + hitpoints);
             hitpoints = hitpoints - damage;
+            hitpointsText.text = "Hitpoints: " + hitpoints;
             //Debug.Log("hp: " + hitpoints);
         }
         shieldStr = 0.0;
     }
 
+    #region shield charging
     // Kentän palautuminen
     // Kahden sekunnin viive latauksessa kun kenttä on nollassa
     public IEnumerator rechargeShield()
@@ -124,6 +164,15 @@ public class PlayerController : MonoBehaviour
         // Debug.Log("aft speed:" + speed);
 
     }
+    #endregion
+
+    public void upgradeWeapon()
+    {
+        if (weaponLevel < 5)
+        {
+            weaponLevel++;
+        }
+    }
 
     public void newWeapon()
     {
@@ -135,6 +184,8 @@ public class PlayerController : MonoBehaviour
     public void increaseHp()
     {
         hitpoints++;
+        hitpointsText.text = "Hitpoints: " + hitpoints;
+
     }
 
     public int getShieldStr()
