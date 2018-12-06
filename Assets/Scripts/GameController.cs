@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
     public GameObject asteroid_6;
     public GameObject enemyShip_1;
     public GameObject enemyShip_2;
+    public GameObject enemyShip_3;
     public GameObject pickup;   // Pickup
 
     public GameObject[,][] map;
@@ -115,7 +116,7 @@ public class GameController : MonoBehaviour
         hazardsSpaceLane = new GameObject[3];
         hazardsSpaceLane[0] = enemyShip_1;
         hazardsSpaceLane[1] = enemyShip_2;
-        hazardsSpaceLane[2] = enemyShip_2;
+        hazardsSpaceLane[2] = enemyShip_3;
 
         hazardsAlienLane = new GameObject[2];
         hazardsAlienLane[0] = enemyShip_1;
