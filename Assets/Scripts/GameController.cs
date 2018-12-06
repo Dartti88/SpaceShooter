@@ -50,8 +50,6 @@ public class GameController : MonoBehaviour
     public GameObject asteroid_6;
     public GameObject enemyShip_1;
     public GameObject enemyShip_2;
-    public GameObject enemyShip_3;
-    public GameObject alien_1;
     public GameObject pickup;   // Pickup
 
     private enum enemies
@@ -64,8 +62,6 @@ public class GameController : MonoBehaviour
         asteroid_6,
         enemyShip_1,
         enemyShip_2,
-        enemyShip_3,
-        alien_1,
         total
     }
 
@@ -129,17 +125,14 @@ public class GameController : MonoBehaviour
         hazardsAsteroidLane[4] = asteroid_5;
         hazardsAsteroidLane[5] = asteroid_6;
 
-        hazardsSpaceLane = new GameObject[6];
+        hazardsSpaceLane = new GameObject[3];
         hazardsSpaceLane[0] = enemyShip_1;
-        hazardsSpaceLane[1] = enemyShip_1;
+        hazardsSpaceLane[1] = enemyShip_2;
         hazardsSpaceLane[2] = enemyShip_2;
-        hazardsSpaceLane[3] = enemyShip_1;
-        hazardsSpaceLane[4] = enemyShip_2;
-        hazardsSpaceLane[5] = enemyShip_3;
 
         hazardsAlienLane = new GameObject[2];
-        hazardsAlienLane[0] = alien_1;
-        hazardsAlienLane[0] = alien_1;
+        hazardsAlienLane[0] = enemyShip_1;
+        hazardsAlienLane[1] = enemyShip_2;
 
         hazardsCurrentLane = hazardsSpaceLane;
 
@@ -275,33 +268,30 @@ public class GameController : MonoBehaviour
             tempList[i] = hazardsCurrentLane[(int)enemy];
 
             int caps = 0;
-
-            if (hazardsCurrentLane[(int)enemy] == asteroid_1) { caps = 0; }
-            else if (hazardsCurrentLane[(int)enemy] == asteroid_2) { caps = 0; }
-            else if (hazardsCurrentLane[(int)enemy] == asteroid_3) { caps = 0; }
-            else if (hazardsCurrentLane[(int)enemy] == asteroid_4) { caps = 0; }
-            else if (hazardsCurrentLane[(int)enemy] == asteroid_5) { caps = 0; }
-            else if (hazardsCurrentLane[(int)enemy] == asteroid_6) { caps = 1; }
-            else if (hazardsCurrentLane[(int)enemy] == enemyShip_1) { caps = 2; }
-            else if (hazardsCurrentLane[(int)enemy] == enemyShip_2) { caps = 4; }
-            else if (hazardsCurrentLane[(int)enemy] == enemyShip_3) { caps = 9; }
-            /*
-            switch (hazardsCurrentLane[(int)enemy])
+            switch ((int)enemy)
             {
-                case (GameObject)asteroid_1: break;
-                case asteroid_2: break;
-                case (int)enemies.asteroid_3: break;
-                case (int)enemies.asteroid_4: break;
-                case (int)enemies.asteroid_5: caps = 1; Debug.Log("Cap: 1"); break;
-                case (int)enemies.asteroid_6: caps = 1; Debug.Log("Cap: 1"); break;
-                case (int)enemies.enemyShip_1: caps = 2; Debug.Log("Cap: 2"); break;
-                case (int)enemies.enemyShip_2: caps = 4; Debug.Log("Cap: 4"); break;
-                case (int)enemies.enemyShip_3: caps = 9; Debug.Log("Cap: 9"); break;
-            }
-            */
-            if (caps>0)
-            {
-                for (int j = 1; j <= caps; j++) { if ((i + j) < hazard_number) { tempList[i + j] = null; i++; } }
+                case (int)enemies.asteroid_1:
+                    break;
+                case (int)enemies.asteroid_2:
+                    break;
+                case (int)enemies.asteroid_3:
+                    break;
+                case (int)enemies.asteroid_4:
+                    break;
+                case (int)enemies.asteroid_5:
+                    caps = 1;
+                    for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
+                    break;
+                case (int)enemies.asteroid_6:
+                    caps = 2;
+                    for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
+                    break;
+                case (int)enemies.enemyShip_1:
+                    break;
+                case (int)enemies.enemyShip_2:
+                    caps = 1;
+                    for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
+                    break;
             }
 
         }
