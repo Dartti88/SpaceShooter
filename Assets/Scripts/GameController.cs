@@ -270,28 +270,19 @@ public class GameController : MonoBehaviour
             int caps = 0;
             switch ((int)enemy)
             {
-                case (int)enemies.asteroid_1:
-                    break;
-                case (int)enemies.asteroid_2:
-                    break;
-                case (int)enemies.asteroid_3:
-                    break;
-                case (int)enemies.asteroid_4:
-                    break;
-                case (int)enemies.asteroid_5:
-                    caps = 1;
-                    for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
-                    break;
-                case (int)enemies.asteroid_6:
-                    caps = 2;
-                    for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
-                    break;
-                case (int)enemies.enemyShip_1:
-                    break;
-                case (int)enemies.enemyShip_2:
-                    caps = 1;
-                    for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
-                    break;
+                case (int)enemies.asteroid_1: break;
+                case (int)enemies.asteroid_2: break;
+                case (int)enemies.asteroid_3: break;
+                case (int)enemies.asteroid_4: break;
+                case (int)enemies.asteroid_5: caps = 1; break;
+                case (int)enemies.asteroid_6:  caps = 1; break;
+                case (int)enemies.enemyShip_1: caps = 2; break;
+                case (int)enemies.enemyShip_2: caps = 4; break;
+                //case (int)enemies.enemyShip_3: caps = 9; break;
+            }
+            if (caps>0)
+            {
+                for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
             }
 
         }
