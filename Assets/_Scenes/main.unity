@@ -1913,7 +1913,7 @@ MonoBehaviour:
   mapPlayerTexture: {fileID: 2800000, guid: 4a2553d9a1214a446987449d5509fb60, type: 3}
   mapAsteroidTexture: {fileID: 2800000, guid: e53ec758dada3ce43a222d70419f8619, type: 3}
   mapAlienTexture: {fileID: 2800000, guid: bd2e794b6e7bc5243974e7bb5daf822c, type: 3}
-  mapSize: 0
+  mapSize: 30
 --- !u!4 &1681551530
 Transform:
   m_ObjectHideFlags: 0
@@ -2194,8 +2194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -120}
+  m_SizeDelta: {x: 160, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1780467657
 MonoBehaviour:
@@ -2223,7 +2223,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
