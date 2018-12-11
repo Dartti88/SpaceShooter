@@ -492,7 +492,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 514774478}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -1779,6 +1779,7 @@ MonoBehaviour:
     type: 2}
   enemyShip_2: {fileID: 1414136939484190, guid: 2a23cec0f0ad8164995524a8550919d3,
     type: 2}
+  enemyShip_3: {fileID: 0}
   pickup: {fileID: 1815691655527350, guid: 40e097c4d223f9a42bda356ae3a849f7, type: 2}
   tempList: []
   mapSpaceTexture: {fileID: 2800000, guid: 97474ee54d60efa4ebf1010a7158b1dc, type: 3}

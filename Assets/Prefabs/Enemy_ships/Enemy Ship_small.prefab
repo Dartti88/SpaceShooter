@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab41e0095ce511243bf973a19893ce1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -8
+  speed: -6
 --- !u!114 &114870360800196372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 1863266884354384, guid: aeb2d06d77b57344c9ecfdffda5312cc, type: 2}
   shotSpawn: {fileID: 4615326810309818}
-  fireRate: 0.4
+  fireRate: 1.5
   delay: 0.2
 --- !u!135 &135178082963091612
 SphereCollider:
