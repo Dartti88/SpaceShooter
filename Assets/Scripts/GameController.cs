@@ -135,19 +135,9 @@ public class GameController : MonoBehaviour
         hazardsSpaceLane[4] = enemyShip_2;
         hazardsSpaceLane[5] = enemyShip_3;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
         hazardsAlienLane = new GameObject[2];
         hazardsAlienLane[0] = enemyShip_1;
         hazardsAlienLane[1] = enemyShip_2;
-
-=======
->>>>>>> parent of ad05dca... [Dart] Merge meta shit
-=======
->>>>>>> parent of ad05dca... [Dart] Merge meta shit
-        hazardsAlienLane = new GameObject[1];
-        hazardsAlienLane[0] = alien_1;
 
         hazardsCurrentLane = hazardsSpaceLane;
 
@@ -283,18 +273,17 @@ public class GameController : MonoBehaviour
             tempList[i] = hazardsCurrentLane[(int)enemy];
 
             int caps = 0;
-            switch ((int)enemy)
-            {
-                case (int)enemies.asteroid_1: break;
-                case (int)enemies.asteroid_2: break;
-                case (int)enemies.asteroid_3: break;
-                case (int)enemies.asteroid_4: break;
-                case (int)enemies.asteroid_5: caps = 1; break;
-                case (int)enemies.asteroid_6:  caps = 1; break;
-                case (int)enemies.enemyShip_1: caps = 2; break;
-                case (int)enemies.enemyShip_2: caps = 4; break;
-                case (int)enemies.enemyShip_3: caps = 9; break;
-            }
+
+            if (hazardsCurrentLane[(int)enemy] == asteroid_1) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == asteroid_2) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == asteroid_3) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == asteroid_4) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == asteroid_5) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == asteroid_6) { caps = 1; }
+            else if (hazardsCurrentLane[(int)enemy] == enemyShip_1) { caps = 1; }
+            else if (hazardsCurrentLane[(int)enemy] == enemyShip_2) { caps = 2; }
+            else if (hazardsCurrentLane[(int)enemy] == enemyShip_3) { caps = 6; }
+
             if (caps>0)
             {
                 for (int j = 1; j <= caps; j++) { if (i + j < hazard_number) { tempList[i + j] = null; i++; } }
