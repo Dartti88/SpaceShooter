@@ -359,7 +359,7 @@ public class GameController : MonoBehaviour
     {
         gameOverText.text = "Game Over!";
         gameOver = true;
-        highScoreText.text = "High scores: \n" + ListHighScore(score);
+        highScoreText.text = ListHighScore(score);
 
     }
 
@@ -406,7 +406,7 @@ public class GameController : MonoBehaviour
         }
 
         // Scores are added to string and non zero one are saved to PlayerPrefs
-        string sortedHighScoreString = "";
+        string sortedHighScoreString = "\nYour score: " + score + "\nHigh scores:\n";
         for (int i = 0; i < 5; i++)
         {
             if (scoresFinal[i] == 0)
@@ -416,7 +416,7 @@ public class GameController : MonoBehaviour
 
             else
             {
-                sortedHighScoreString += i + ": " + scoresFinal[i] + "\n";
+                sortedHighScoreString += i + 1 + ": " + scoresFinal[i] + "\n";
                 PlayerPrefs.SetInt("Score" + i, scoresFinal[i]);
             }
         }

@@ -7,15 +7,23 @@ public class Pickup : MonoBehaviour
     public float speed;
     private GameController gameController;
     private PlayerController playerController;
+
+    public Texture[] textures;
+    
+    
+    Renderer pickUpRenderer;
+
     public enum PickUpTypes
     {
-        weapon, health, boost, score, total
+        weapon, health, boost, score, random, total
     }
     public PickUpTypes type;
 
 
     void Start()
     {
+        pickUpRenderer = GetComponent<Renderer>();
+
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
 
         gameController = GameObject.FindObjectOfType<GameController>();
@@ -27,6 +35,14 @@ public class Pickup : MonoBehaviour
         if (playerController == null)
         {
             Debug.Log("Cannot find 'PlayerController' script");
+        }
+
+        if (type == PickUpTypes.random)
+        {
+            int chance = Random.Range(0, 4); 
+            type = (PickUpTypes)chance;
+            pickUpRenderer.material.mainTexture = textures[chance];
+            
         }
     }
 
@@ -40,7 +56,6 @@ public class Pickup : MonoBehaviour
                     case PickUpTypes.weapon:
                         Debug.Log("Player picked weapon");
                         upgradeWeapon();
-                        //newWeapon();
                         break;
                     case PickUpTypes.health:
                         Debug.Log("Player picked hp");

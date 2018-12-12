@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        hitpoints = 20;
+        hitpoints = 1;
         shieldStr = 100.0;
         secondWeapon = false;
         fireRate2 = fireRate * 4;
