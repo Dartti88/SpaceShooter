@@ -323,6 +323,10 @@ public class GameController : MonoBehaviour
 
 
             waveCount++;
+            if (waveCount == hazardCount)
+            {
+                gameOver = true;
+            }
 
             /*
             Vector3 pickUpSpawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);

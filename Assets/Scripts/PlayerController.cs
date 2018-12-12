@@ -74,10 +74,11 @@ public class PlayerController : MonoBehaviour
                     Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
                     break;
                 case 4:
-                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnLeft, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
 
+                    // Shot vasuri
+                    // Shot oikea
                     Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                     Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 
@@ -88,8 +89,8 @@ public class PlayerController : MonoBehaviour
                     Instantiate(shot, shotSpawnLeft, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
 
-                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    // SHot vasuri
+                    // Shot oikea
                     Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                     Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 
@@ -151,6 +152,11 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("hp: " + hitpoints);
         }
         shieldStr = 0.0;
+        if (weaponLevel > 1)
+        {
+            weaponLevel--;
+        }
+
     }
 
     #region shield charging
