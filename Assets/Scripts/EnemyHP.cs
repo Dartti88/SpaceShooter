@@ -8,7 +8,8 @@ public class EnemyHP : MonoBehaviour {
     private int startHp;
     public GameObject randomPickup;
     System.Random rnd = new System.Random();
-    public Vector3 spawnValues;
+    //public Vector3 spawnValues;
+    private bool ignore=false;
     //public Transform pickupSpawn;
 
     // Use this for initialization
@@ -28,9 +29,10 @@ public class EnemyHP : MonoBehaviour {
             hp -= 1;
         }
 
-        if (hp <= 0)
+        if (hp <= 0 && ignore==false)
         {
-
+            ignore = true;
+            Destroy(this.gameObject);
             if (startHp > 20)
             {
                 //Vector3 spawnPosition = new Vector3(transform.position, transform.position, transform.position);
@@ -49,7 +51,7 @@ public class EnemyHP : MonoBehaviour {
                 }
             }
 
-            Destroy(this.gameObject);
+            
         }
     }
 
