@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        hitpoints = 1;
+        hitpoints = 3;
         shieldStr = 100.0;
         secondWeapon = false;
         fireRate2 = fireRate * 4;
@@ -74,13 +74,17 @@ public class PlayerController : MonoBehaviour
                     Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
                     break;
                 case 4:
-                    Instantiate(shot, shotSpawnLeft, shotSpawn.rotation);
-                    Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
+                    Vector3 shotSpawnLeft4 = new Vector3(shotSpawn.position.x + 0.2f, 0.0f, shotSpawn.position.z);
+                    Vector3 shotSpawnRight4 = new Vector3(shotSpawn.position.x - 0.2f, 0.0f, shotSpawn.position.z);
+                    Instantiate(shot, shotSpawnLeft4, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawnRight4, shotSpawn.rotation);
 
                     // Shot vasuri
                     // Shot oikea
-                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Vector3 shotSpawnLeft5 = new Vector3(shotSpawn.position.x + 0.5f, 0.0f, shotSpawn.position.z - 0.2f);
+                    Vector3 shotSpawnRight5 = new Vector3(shotSpawn.position.x - 0.5f, 0.0f, shotSpawn.position.z - 0.2f);
+                    Instantiate(shot, shotSpawnLeft5, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawnRight5, shotSpawn.rotation);
 
 
                     break;
@@ -91,8 +95,10 @@ public class PlayerController : MonoBehaviour
 
                     // SHot vasuri
                     // Shot oikea
-                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Vector3 shotSpawnLeft3 = new Vector3(shotSpawn.position.x + 0.5f, 0.0f, shotSpawn.position.z-0.2f);
+                    Instantiate(shot, shotSpawnLeft3, shotSpawn.rotation);
+                    Vector3 shotSpawnRight3 = new Vector3(shotSpawn.position.x - 0.5f, 0.0f, shotSpawn.position.z-0.2f);
+                    Instantiate(shot, shotSpawnRight3, shotSpawn.rotation);
 
                     break;
             }
@@ -118,6 +124,8 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(rechargeShield());
         }
+
+        if (hitpoints > 3) { hitpoints = 3; } //Set max hitpoints
         hitpointsText.text = "Hitpoints: " + hitpoints;
     }
 

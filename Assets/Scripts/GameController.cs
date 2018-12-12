@@ -326,6 +326,7 @@ public class GameController : MonoBehaviour
             if (waveCount == hazardCount)
             {
                 gameOver = true;
+                GameOver();
             }
 
             /*
@@ -336,8 +337,6 @@ public class GameController : MonoBehaviour
 
             if (gameOver == true)
             {
-                restartText.text = "Press 'R' for Restart";
-                restart = true;
                 break;
             }
         }
@@ -363,6 +362,8 @@ public class GameController : MonoBehaviour
     {
         gameOverText.text = "Game Over!";
         gameOver = true;
+        restartText.text = "Press 'R' for Restart";
+        restart = true;
         highScoreText.text = ListHighScore(score);
 
     }
