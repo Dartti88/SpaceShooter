@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44950223, g: 0.49649745, b: 0.5591471, a: 1}
+  m_IndirectSpecularColor: {r: 0.4495026, g: 0.49649847, b: 0.559148, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1907,7 +1907,10 @@ MonoBehaviour:
     type: 2}
   enemyShip_2: {fileID: 1414136939484190, guid: 2a23cec0f0ad8164995524a8550919d3,
     type: 2}
-  enemyShip_3: {fileID: 0}
+  enemyShip_3: {fileID: 1414136939484190, guid: b9c7339461c865f46bf0b10a24d35f6f,
+    type: 2}
+  alien_1: {fileID: 1358076051963742, guid: 7893f62668f349643aebbe220f90d4d2, type: 2}
+  alien_2: {fileID: 1358076051963742, guid: 1710ce975dc2bd942aeca3ca3b7ce67f, type: 2}
   pickup: {fileID: 1815691655527350, guid: 40e097c4d223f9a42bda356ae3a849f7, type: 2}
   tempList: []
   mapSpaceTexture: {fileID: 2800000, guid: 97474ee54d60efa4ebf1010a7158b1dc, type: 3}

@@ -51,6 +51,8 @@ public class GameController : MonoBehaviour
     public GameObject enemyShip_1;
     public GameObject enemyShip_2;
     public GameObject enemyShip_3;
+    public GameObject alien_1;
+    public GameObject alien_2;
     public GameObject pickup;   // Pickup
 
     private enum enemies
@@ -64,6 +66,8 @@ public class GameController : MonoBehaviour
         enemyShip_1,
         enemyShip_2,
         enemyShip_3,
+        alien_1,
+        alien_2,
         total
     }
 
@@ -135,9 +139,16 @@ public class GameController : MonoBehaviour
         hazardsSpaceLane[4] = enemyShip_2;
         hazardsSpaceLane[5] = enemyShip_3;
 
-        hazardsAlienLane = new GameObject[2];
-        hazardsAlienLane[0] = enemyShip_1;
-        hazardsAlienLane[1] = enemyShip_2;
+        hazardsAlienLane = new GameObject[9];
+        hazardsAlienLane[0] = alien_1;
+        hazardsAlienLane[1] = alien_1;
+        hazardsAlienLane[2] = alien_1;
+        hazardsAlienLane[3] = alien_1;
+        hazardsAlienLane[4] = alien_1;
+        hazardsAlienLane[5] = asteroid_1;
+        hazardsAlienLane[6] = enemyShip_1;
+        hazardsAlienLane[7] = enemyShip_2;
+        hazardsAlienLane[8] = alien_2;
 
         hazardsCurrentLane = hazardsSpaceLane;
 
@@ -282,6 +293,8 @@ public class GameController : MonoBehaviour
             else if (hazardsCurrentLane[(int)enemy] == enemyShip_1) { caps = 1; }
             else if (hazardsCurrentLane[(int)enemy] == enemyShip_2) { caps = 2; }
             else if (hazardsCurrentLane[(int)enemy] == enemyShip_3) { caps = 6; }
+            else if (hazardsCurrentLane[(int)enemy] == alien_1) { caps = 0; }
+            else if (hazardsCurrentLane[(int)enemy] == alien_2) { caps = 12; }
 
             if (caps>0)
             {
