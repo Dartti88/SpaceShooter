@@ -75,13 +75,10 @@ public class Pickup : MonoBehaviour
     }
 
 
-
     // Methods for connecting pickups to playerController
-    //
-
     public void speedBoost()
     {
-        playerController.changeSpeed(4);
+        playerController.changeSpeed(1);
     }
 
     public void upgradeWeapon()

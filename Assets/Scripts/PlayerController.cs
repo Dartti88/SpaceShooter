@@ -164,6 +164,10 @@ public class PlayerController : MonoBehaviour
         {
             weaponLevel--;
         }
+        if (speed > 8)
+        {
+            speed -= 1;
+        }
 
     }
 
@@ -181,15 +185,19 @@ public class PlayerController : MonoBehaviour
         // Charging speed
         shieldStr += 0.2;
     }
+    #endregion
 
     public void changeSpeed(int speedPlus)
     {
         // Debug.Log("pre speed:" + speed);
-        speed += speedPlus;
+        if (speed < 13)
+        {
+            speed += speedPlus;
+        }
         // Debug.Log("aft speed:" + speed);
 
     }
-    #endregion
+
 
     public void upgradeWeapon()
     {
