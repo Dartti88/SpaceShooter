@@ -126,7 +126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -5
-  type: 0
+  textures:
+  - {fileID: 2800000, guid: 39eb2db5366153340935b144f62fd5d3, type: 3}
+  - {fileID: 2800000, guid: d2081c3b2794ad444b4345058ce90f7f, type: 3}
+  - {fileID: 2800000, guid: a1a9263d8cfa54545bd6b3f0fbb82197, type: 3}
+  - {fileID: 2800000, guid: cd05b23ef8af6b041ad8093f7a4b1f90, type: 3}
+  type: 4
 --- !u!114 &114801256616738426
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        hitpoints = 20;
+        hitpoints = 1;
         shieldStr = 100.0;
         secondWeapon = false;
         fireRate2 = fireRate * 4;
@@ -77,11 +77,22 @@ public class PlayerController : MonoBehaviour
                     Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnLeft, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
+
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+
+
                     break;
                 case 5:
                     Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnLeft, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
+
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+
                     break;
             }
             

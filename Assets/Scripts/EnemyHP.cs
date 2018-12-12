@@ -15,10 +15,10 @@ public class EnemyHP : MonoBehaviour {
     void Start () {
         startHp = hp;
     }
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
     void OnTriggerEnter(Collider other)
@@ -30,7 +30,7 @@ public class EnemyHP : MonoBehaviour {
 
         if (hp <= 0)
         {
-           
+
             if (startHp > 20)
             {
                 //Vector3 spawnPosition = new Vector3(transform.position, transform.position, transform.position);
@@ -41,7 +41,7 @@ public class EnemyHP : MonoBehaviour {
             {
                 // 10 % change
                 int arpa = rnd.Next(0, 10);
-                if (arpa <= 1) 
+                if (arpa <= 1)
                 {
                     //Vector3 spawnPosition = new Vector3(transform.position, transform.position, transform.position);
                     Quaternion spawnRotation = Quaternion.identity;
@@ -68,5 +68,5 @@ public class EnemyHP : MonoBehaviour {
         return hp;
     }
     */
-    
+
 }

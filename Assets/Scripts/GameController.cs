@@ -186,7 +186,6 @@ public class GameController : MonoBehaviour
         #endregion
     }
 
-    //GUI
     #region //GUI - Mitä piirretään GUI layeriin
     void OnGUI()
     {
@@ -358,40 +357,18 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        //HighScore(score);
-        //highScoreText.text = "High score: " + PlayerPrefs.GetInt("Record");
-
         gameOverText.text = "Game Over!";
         gameOver = true;
-        highScoreText.text = "High scores: \n" + ListHighScore(score);
+        highScoreText.text = ListHighScore(score);
 
     }
-
-    // PlayerPrefs.SetInt("Key1", int);
-    // Haetaan GetInt("Key1");
-    // HasKey("Key1");
-
-    // Simple highscore method that gets called when game ends.
-    // Compares current score to previous (if there is one) and shows higher
-    /*
-    public void HighScore(int score)
-    {
-
-        if (!PlayerPrefs.HasKey("Record"))
-        {
-            PlayerPrefs.SetInt("Record", score);
-        }
-        else if (score > PlayerPrefs.GetInt("Record"))
-        {
-            PlayerPrefs.SetInt("Record", score);
-        }
-    }
-    */
 
     // Returns max 5 highest scores in order
+    // Scores are saved to PlayerPrefs with key values Score1, Score2...    
+    #region HighScore
     public string ListHighScore(int score)
     {
-        // Temporary list for previous scores and newest one. If there are less than 5 the rest are filled with 0's
+        // Temporary list for previous scores and newest one. If number of scores is < 5, the rest are filled with 0's
         int[] scoresTemp = new int[6];
         for (int i = 0; i < 5; i++)
         {
@@ -404,14 +381,15 @@ public class GameController : MonoBehaviour
                 scoresTemp[i] = 0;
             }
         }
+        // Final spot is for the newest score
         scoresTemp[5] = score;
 
-        // List that is going to 5 highest scores in descending order
+        // List that is going to have 5 highest scores in descending order
         int[] scoresFinal = new int[5];
         int tempScore = 0;
         int tempIndex = 0;
 
-        // Sorting algorithm
+        // The sorting algorithm
         for (int j = 0; j <5; j++)
         {
             for (int t = 0; t < scoresTemp.Length; t++)
@@ -428,7 +406,7 @@ public class GameController : MonoBehaviour
         }
 
         // Scores are added to string and non zero one are saved to PlayerPrefs
-        string sortedHighScoreString = "";
+        string sortedHighScoreString = "\nYour score: " + score + "\nHigh scores:\n";
         for (int i = 0; i < 5; i++)
         {
             if (scoresFinal[i] == 0)
@@ -438,10 +416,11 @@ public class GameController : MonoBehaviour
 
             else
             {
-                sortedHighScoreString += i + ": " + scoresFinal[i] + "\n";
+                sortedHighScoreString += i + 1 + ": " + scoresFinal[i] + "\n";
                 PlayerPrefs.SetInt("Score" + i, scoresFinal[i]);
             }
         }
         return sortedHighScoreString;
     }
+    #endregion
 }

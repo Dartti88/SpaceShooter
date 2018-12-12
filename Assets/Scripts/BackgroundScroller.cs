@@ -11,14 +11,14 @@ public class BackgroundScroller : MonoBehaviour {
 
     private void Start()
     {
-        startPosition = transform.position;
+        startPosition = transform.position; 
         
     }
 
         
     /// <summary>
     /// Mathf.Repeat loops a value t so that t is between 0 and given length.
-    /// Jos t > length niin arvo on rajojen sisään jäävä jakojäännös. 
+    /// Jos t > length niin arvo on 0-length välillä kun jaetaan lengthillä x-kertaa (tarpeeksi). 
     /// 
     /// </summary>
 	void Update () {
