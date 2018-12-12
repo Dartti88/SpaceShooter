@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1414136939484190}
   m_IsPrefabAsset: 1
+--- !u!1 &1330245462731822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4144512517541486}
+  m_Layer: 0
+  m_Name: Shot Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1333489957467218
 GameObject:
   m_ObjectHideFlags: 0
@@ -20,7 +35,22 @@ GameObject:
   m_Component:
   - component: {fileID: 4204078315570918}
   m_Layer: 0
-  m_Name: Shot Spawn
+  m_Name: Shot Spawn_right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1359060925610606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4459230865014674}
+  m_Layer: 0
+  m_Name: Shot Spawn_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +65,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4959555438548100}
   - component: {fileID: 54588059652331988}
+  - component: {fileID: 136724489894132458}
+  - component: {fileID: 136566701790904498}
+  - component: {fileID: 136634689481008050}
   - component: {fileID: 114330694274921764}
   - component: {fileID: 114474491438814936}
   - component: {fileID: 114349536808147412}
@@ -83,18 +116,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4204078315570918
+--- !u!4 &4144512517541486
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333489957467218}
+  m_GameObject: {fileID: 1330245462731822}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4959555438548100}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!4 &4204078315570918
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333489957467218}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -38, y: 0, z: 22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4959555438548100}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!4 &4459230865014674
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1359060925610606}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 38, y: 0, z: 22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4959555438548100}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4701197314923884
 Transform:
@@ -129,11 +188,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1414136939484190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 4729228452175024}
   - {fileID: 4701197314923884}
+  - {fileID: 4144512517541486}
+  - {fileID: 4459230865014674}
   - {fileID: 4204078315570918}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -301,15 +362,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10864631081368b41b60b9932c3ab7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodge: 10
-  smoothing: 7.5
+  dodge: 5
+  smoothing: 10
   tilt: 5
   startWait: {x: 0.5, y: 1}
   maneuverTime: {x: 1, y: 2}
   maneuverWait: {x: 1, y: 2}
   boundary:
-    xMin: -6
-    xMax: 6
+    xMin: -5
+    xMax: 5
     zMin: 7
     zMax: 20
 --- !u!114 &114330694274921764
@@ -350,7 +411,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1863266884354384, guid: aeb2d06d77b57344c9ecfdffda5312cc, type: 2}
-  shotSpawn: {fileID: 4204078315570918}
+  shotSpawn: {fileID: 4144512517541486}
+  shotSpawn_left: {fileID: 4459230865014674}
+  shotSpawn_right: {fileID: 4204078315570918}
   fireRate: 2
   delay: 0.5
 --- !u!114 &114598459108826596
@@ -367,8 +430,6 @@ MonoBehaviour:
   hp: 18
   randomPickup: {fileID: 1815691655527350, guid: 40e097c4d223f9a42bda356ae3a849f7,
     type: 2}
-  spawnValues: {x: 0, y: 0, z: 0}
-  pickupSpawn: {fileID: 4204078315570918}
 --- !u!136 &136479736562191894
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -376,12 +437,51 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590308126680958}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 16.17
   m_Height: 155.8
   m_Direction: 2
   m_Center: {x: 0, y: -4.7, z: 0}
+--- !u!136 &136566701790904498
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1414136939484190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 6.6
+  m_Height: 58.9
+  m_Direction: 2
+  m_Center: {x: 38, y: 0, z: 22}
+--- !u!136 &136634689481008050
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1414136939484190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 6.6
+  m_Height: 58.9
+  m_Direction: 2
+  m_Center: {x: -38, y: 0, z: 22}
+--- !u!136 &136724489894132458
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1414136939484190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 19.3
+  m_Height: 172.58
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198476727628351872
 ParticleSystem:
   m_ObjectHideFlags: 1

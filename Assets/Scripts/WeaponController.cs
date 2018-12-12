@@ -7,6 +7,8 @@ public class WeaponController : MonoBehaviour {
     // Luodaan muuttujat laukausta ja ampumista varten varten
     public GameObject shot; // Itse laukaus
     public Transform shotSpawn; // Laukauksen sijainti
+    public Transform shotSpawn_left;
+    public Transform shotSpawn_right;
     public float fireRate; // Kesto laukausten välissä (sek)
     public float delay; // Aika ennen ensimmäistä laukausta (sek)
 
@@ -25,6 +27,10 @@ public class WeaponController : MonoBehaviour {
     void Fire ()
     {
         Instantiate(shot, shotSpawn.position, shotSpawn.rotation); // Luodaan laukaus
+        audioSource.Play(); // Lisätään äänet laukaukseen
+        Instantiate(shot, shotSpawn_left.position, shotSpawn_left.rotation); // Luodaan laukaus
+        audioSource.Play(); // Lisätään äänet laukaukseen
+        Instantiate(shot, shotSpawn_right.position, shotSpawn_right.rotation); // Luodaan laukaus
         audioSource.Play(); // Lisätään äänet laukaukseen
     }
 

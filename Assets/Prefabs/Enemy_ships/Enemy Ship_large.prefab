@@ -352,6 +352,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 1863266884354384, guid: aeb2d06d77b57344c9ecfdffda5312cc, type: 2}
   shotSpawn: {fileID: 4204078315570918}
+  shotSpawn_left: {fileID: 0}
+  shotSpawn_right: {fileID: 0}
   fireRate: 2
   delay: 0.5
 --- !u!114 &114598459108826596
@@ -365,11 +367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a028268050f36ea4fa63d947fe23b8c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2
+  hp: 3
   randomPickup: {fileID: 1815691655527350, guid: 40e097c4d223f9a42bda356ae3a849f7,
     type: 2}
-  spawnValues: {x: 0, y: 0, z: 0}
-  pickupSpawn: {fileID: 4204078315570918}
 --- !u!135 &135002209222648758
 SphereCollider:
   m_ObjectHideFlags: 1
