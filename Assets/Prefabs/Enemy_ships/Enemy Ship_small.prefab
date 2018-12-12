@@ -302,6 +302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
+  randomPickup: {fileID: 1815691655527350, guid: 40e097c4d223f9a42bda356ae3a849f7,
+    type: 2}
+  spawnValues: {x: 0, y: 0, z: 0}
+  pickupSpawn: {fileID: 4615326810309818}
 --- !u!114 &114306427365054070
 MonoBehaviour:
   m_ObjectHideFlags: 1
