@@ -410,7 +410,7 @@ public class GameController : MonoBehaviour
         }
 
         // Scores are added to string and non zero one are saved to PlayerPrefs
-        string sortedHighScoreString = "\nYour score: " + score + "\nHigh scores:\n";
+        string sortedHighScoreString = "Your score: " + score + "\n\n   High scores:\n";
         for (int i = 0; i < 5; i++)
         {
             if (scoresFinal[i] == 0)
