@@ -77,11 +77,22 @@ public class PlayerController : MonoBehaviour
                     Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnLeft, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
+
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+
+
                     break;
                 case 5:
                     Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnLeft, shotSpawn.rotation);
                     Instantiate(shot, shotSpawnRight, shotSpawn.rotation);
+
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+
                     break;
             }
             
