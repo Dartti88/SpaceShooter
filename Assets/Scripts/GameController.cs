@@ -415,12 +415,12 @@ public class GameController : MonoBehaviour
         {
             if (scoresFinal[i] == 0)
             {
-                sortedHighScoreString += i + ": -\n";
+                sortedHighScoreString += (i + 1) + ": -\n";
             }
 
             else
             {
-                sortedHighScoreString += i + 1 + ": " + scoresFinal[i] + "\n";
+                sortedHighScoreString += (i + 1) + ": " + scoresFinal[i] + "\n";
                 PlayerPrefs.SetInt("Score" + i, scoresFinal[i]);
             }
         }
